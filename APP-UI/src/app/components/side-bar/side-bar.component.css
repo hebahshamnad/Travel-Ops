@@ -1,0 +1,54 @@
+.sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; /* Make the sidebar full height */
+    width: 250px; /* Adjust the width as needed */
+    background-color: black; /* Set the background color to black */
+    z-index: 1000; /* Ensure the sidebar stays above other content */
+}
+
+.nav {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.nav li a {
+    display: block;
+    color: white; /* Set text color to white */
+    text-decoration: none;
+    
+}
+.wrapper{
+    margin-top: 40px;
+}
+.nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Lighten the background color on hover */
+}
+
+.nav li.active {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight active item */
+}
+.logo {
+    text-align: center; /* Center the content horizontally */
+    margin-bottom: 20px; /* Add some space below the logo */
+}
+
+.logo-img img {
+    width: 80px; /* Set the width of the logo image */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+.logo span {
+    color: white; /* Set the color of the text */
+    font-size: 20px; /* Set the font size of the text */
+    display: block; /* Display the text as a block element */
+    margin-top: 15px; /* Add some space above the text */
+}

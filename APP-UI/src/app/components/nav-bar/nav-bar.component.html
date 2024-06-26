@@ -1,0 +1,13 @@
+
+<mat-toolbar class="navbar">
+  <span class="spacer"></span>
+  <div class="nav-links">
+    <div class="nav-link" [matMenuTriggerFor]="menu">Account
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item> <mat-icon aria-hidden="false" fontIcon="account_circle"></mat-icon>Profile</button>
+        <button mat-menu-item> <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>Settings</button>
+        <button mat-menu-item> <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

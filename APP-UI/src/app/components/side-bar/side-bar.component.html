@@ -1,0 +1,20 @@
+<div class="sidebar-wrapper">
+    <BR><BR>
+    <div class="logo">
+        
+            <div class="logo-img">
+                <img src="/assets/image/LOGO.png"/>
+            </div>
+            <span>TRAV-OPS</span>
+
+    </div>
+    <ul class="nav">
+        <div class="wrapper">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+            <a  [routerLink]='[menuItem.path]'>    
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        </div>
+    </ul>
+</div>
