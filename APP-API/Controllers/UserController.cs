@@ -35,7 +35,7 @@ namespace APP_API.Controllers
                     EmailNotifications = true,
                     SmsNotifications = false,
                     AppNotifications = true
-                },
+                }, 
         
               
             };
