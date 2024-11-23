@@ -3,7 +3,7 @@
     min-height: 90vh;
     margin-left: 250px; 
     padding: 20px; /* Adds padding inside the container */
-    background-color: #fff; /* Sets the background color to white */
+    background-color: whitesmoke; /* Sets the background color to white */
     border: 2px solid #3498db; /* Adds a solid border with a specific color */
     /* border-radius: 8px; Rounds the corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */

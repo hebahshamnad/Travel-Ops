@@ -1,8 +1,9 @@
-
 <mat-toolbar class="navbar">
   <span class="spacer"></span>
   <div class="nav-links">
-    <div class="nav-link" [matMenuTriggerFor]="menu">Account
+    <div class="nav-link" [matMenuTriggerFor]="menu">
+      <mat-icon class="nav-icon" aria-hidden="false" fontIcon="account_circle"></mat-icon>
+      <span class="nav-text">Account</span>
       <mat-menu #menu="matMenu">
         <button mat-menu-item> <mat-icon aria-hidden="false" fontIcon="account_circle"></mat-icon>Profile</button>
         <button mat-menu-item> <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>Settings</button>

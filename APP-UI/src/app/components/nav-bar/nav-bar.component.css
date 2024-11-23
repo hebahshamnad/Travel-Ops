@@ -1,41 +1,50 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     background-color: rgb(9, 85, 101);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    height: 50px;
-  }
-  
-   
-  .nav-links {
-    display: flex;
-  }
-  
-  .nav-link {
-    color: white;
-    margin-right: 20px;
-    margin-left: 50px;
-    font-size: medium;
-    list-style-type: none;
-  }
-  .menu{
-    font-size: small !important;
-  }
-  .nav-link:hover {
-    color: rgb(177, 228, 242); /* Lighten the background color on hover */
+    padding: 0 24px;
+    height: 56px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-  .spacer {
-    flex: 1;
-  }
-  .icon{
-    margin-top: 20px;
-  }
 
-  .mat-menu-content .mat-menu-item {
-    font-size: small; /* Adjust the font size of the menu items */
-    padding: 8px 16px; /* Adjust the padding around the menu items */
-  }
-  .button{
-    font-size: x-small !important
-  }
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    font-size: medium;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spacer {
+    flex: 1;
+}
+
+.mat-menu-item {
+    font-size: small;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-icon {
+    opacity: 0.9;
+}

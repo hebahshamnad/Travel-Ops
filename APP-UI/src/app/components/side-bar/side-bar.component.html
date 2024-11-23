@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div class="sidebar-wrapper">
     <BR><BR>
     <div class="logo">
@@ -12,6 +14,7 @@
         <div class="wrapper">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a  [routerLink]='[menuItem.path]'>    
+                <span class="material-icons">{{menuItem.icon}}</span>    
                 <p>{{menuItem.title}}</p>
             </a>
         </li>

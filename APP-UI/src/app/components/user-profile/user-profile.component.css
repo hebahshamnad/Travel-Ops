@@ -1,34 +1,46 @@
 .cards-container {
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  padding-top: 60px;
+  margin: 0 auto;
+  overflow: hidden; /* Prevents scrollbar */
+
 }
 
 .card {
-  border: 1px solid #e3e3e3;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 49%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-  background-color: #f5f5f5;
-  padding: 15px;
-  border-bottom: 1px solid #e3e3e3;
-
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 20px;
 }
 
 .card-title {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.6em;
+  color: #2c3e50;
+  font-weight: 600;
 }
 
 .profile-card {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #fff;
+  gap: 15px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .profile-item {
@@ -37,10 +49,13 @@
 }
 
 .label {
-  font-weight: bold;
-  color: #666;
+  font-weight: 500;
+  color: #7f8c8d;
   text-align: left;
-  margin-top: 7px
+  margin-top: 8px;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 
@@ -50,18 +65,33 @@
 
 .input-field input {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.2s;
+  background-color: #f8f9fa;
 }
 
 .input-field input:focus {
   outline: none;
-  border-color: rgb(9, 85, 101);
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  background-color: white;
 }
 
-.photo{
-  margin: auto;
+.photo {
+  margin: 20px auto;
   display: block;
   text-align: center;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.profile-image {
+  width: 10vw;  /* 10% of viewport width */
+  min-width: 100px; /* Minimum size */
+  max-width: 150px; /* Maximum size */
+  height: auto;
+  object-fit: contain;
 }

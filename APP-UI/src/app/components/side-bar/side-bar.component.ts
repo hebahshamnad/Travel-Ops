@@ -4,16 +4,17 @@ declare const $: any;
 declare interface RouteInfo {
     path: string;
     title: string;
+    icon: string;
 }
 export const ROUTES: RouteInfo[] = [
     
-    { path: '/home', title: 'Home' },
-    { path: '/user-profile', title: 'User Profile'},
-    { path: '/events', title: 'Events & Conferences'},
-    { path: '/request', title: 'Requests/Approvals'},
-    { path: '/trip', title: 'Flights & Hotel' },
-    { path: '/expenses', title: 'Expense Management'},
-    { path: '/policy', title: 'Policy' },
+    { path: '/home', title: 'Home', icon: 'home' },
+    { path: '/user-profile', title: 'My Profile', icon: 'person' },
+    { path: '/events', title: 'Events Calendar', icon: 'event' },
+    { path: '/request', title: 'Travel Approvals', icon: 'approval' },
+    { path: '/trip', title: 'Travel Booking', icon: 'flight' },
+    { path: '/expenses', title: 'Expense Claims', icon: 'account_balance_wallet' },
+    { path: '/policy', title: 'Travel Policy', icon: 'policy' },
 ];
 
 @Component({

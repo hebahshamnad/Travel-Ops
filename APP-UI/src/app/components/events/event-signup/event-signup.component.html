@@ -2,5 +2,56 @@
     <div class="card-header">
         <h2 class="card-title">Events & Conference Request Form</h2>
     </div>
-    <div class="card-content"></div>
+    <div class="card-content">
+        <!-- Name Fields -->
+        <div class="profile-item">
+            <label class="label">Name:</label>
+            <div class="input-field">
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Last Name">
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="profile-item">
+            <label class="label">Contact Information:</label>
+            <div class="input-field">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <div class="input-field">
+                <input type="tel" placeholder="Phone Number">
+            </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="profile-item">
+            <label class="label">Event Details:</label>
+            <div class="input-field">
+                <select>
+                    <option value="">Select Event Type</option>
+                    <option value="conference">Conference</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="seminar">Seminar</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <input type="date" placeholder="Preferred Date">
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="profile-item">
+            <label class="label">Additional Information:</label>
+            <div class="input-field">
+                <textarea placeholder="Special Requirements or Notes"></textarea>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="profile-item">
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </div>
+    </div>
 </div>
