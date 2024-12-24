@@ -36,12 +36,12 @@
 .icon {
     margin: 0 8px;
     cursor: pointer;
-    color: #666;
+    color: darkcyan;
     transition: color 0.2s ease;
 }
 
 .icon:hover {
-    color: #2196f3;
+    color: teal;
 }
 
 .table td {
@@ -57,6 +57,7 @@
     color: #2c3e50;
     padding: 16px;
 }
+
 
 ::ng-deep .mat-row {
     background-color: #ffffff;

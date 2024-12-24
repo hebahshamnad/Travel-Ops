@@ -1,0 +1,120 @@
+.card {
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  background-color: white;
+}
+
+.card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.75em;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+
+.card-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+
+.label {
+  min-width: 150px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: left;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0;
+  padding: 20px 0px;
+  margin-left: 5px;
+}
+
+.tab-container {
+  padding: 20px;
+  margin: 25px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  min-height: 60vh;
+}
+
+
+
+.input-field {
+  display: flex;
+}
+
+.input-field input,
+.input-field select,
+.input-field textarea {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.2s;
+  background-color: #f8f9fa;
+  width: 50%;
+  margin: 10px;
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  background-color: white;
+}
+
+.btn {
+  background-color: darkcyan;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: teal;
+}
+
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+::ng-deep .mat-mdc-form-field {
+  max-height: 10px;
+  margin-bottom: 30px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+::ng-deep .mat-mdc-tab-header {
+  padding: 10px 20px 0px 20px;
+}

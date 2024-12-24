@@ -5,13 +5,6 @@ import { Router } from '@angular/router';
 import { EventsService } from '../../services/events.service';
 import { Event } from '../../models/event.model';
 
-// export interface Event {
-//   name: string;
-//   date: string;
-//   location: string;
-//   organizer: string;
-//   link: string;
-// }
 
 @Component({
   selector: 'app-events',
@@ -32,6 +25,7 @@ export class EventsComponent implements OnInit {
   fetchEvents(): void {
     this.eventsService.GetEvents().subscribe((data: Event[]) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.sort = this.sort;
     });
   }
 

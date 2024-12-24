@@ -28,11 +28,6 @@
 
 
 
-.profile-item {
-  display: flex;
-  flex-direction: column;
-}
-
 .label {
   min-width: 150px;
   font-weight: 600;
@@ -48,16 +43,13 @@
 
 .tab-container {
   padding: 20px;
-  margin: 30px;
+  margin: 25px;
   background-color: whitesmoke;
   border-radius: 10px;
   min-height: 60vh;
 }
 
-.tab .mat-tab-header {
-  background-color: pink !important; /* Change this to your desired background color */
-  color: #000; /* Change this to your desired text color */
-}
+
 
 .input-field {
   display: flex;
@@ -85,7 +77,7 @@
 }
 
 .btn {
-  background-color: cadetblue;
+  background-color: darkcyan;
   color: white;
   border: none;
   border-radius: 8px;
@@ -97,7 +89,7 @@
 }
 
 .btn:hover {
-  background-color: darkcyan;
+  background-color: teal;
 }
 
 
@@ -121,3 +113,13 @@ textarea {
   display: flex;
   gap: 10px;
 }
+
+::ng-deep .mat-mdc-tab-header {
+  padding: 10px 20px 0px 20px;
+}
+
+/* ::ng-deep .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{
+  background-color: lightblue;
+  margin: 10px 5px;
+  border-radius: 10px 10px 0px 0px;
+} */
