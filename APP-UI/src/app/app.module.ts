@@ -21,6 +21,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
 import { EventSignupComponent } from './components/events/event-signup/event-signup.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ExpensesComponent } from './components/expenses/expenses.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { PolicyComponent } from './components/policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     UserProfileComponent,
     HomeComponent,
     EventsComponent,
-    EventSignupComponent
+    EventSignupComponent,
+    ExpensesComponent,
+    PolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     HttpClientModule,
     MatSortModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
     
   ],
   providers: [

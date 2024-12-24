@@ -1,57 +1,122 @@
 <div class="card">
     <div class="card-header">
-        <h2 class="card-title">Events & Conference Request Form</h2>
-    </div>
-    <div class="card-content">
-        <!-- Name Fields -->
-        <div class="profile-item">
-            <label class="label">Name:</label>
-            <div class="input-field">
-                <input type="text" placeholder="First Name">
+        <div class="header-container">
+            <h2 class="card-title">Events & Conference Request Form</h2>
+            <div class="button-group">
+                <button type="button" class="btn">UNDO</button>
+                <button type="submit" class="btn">SUBMIT</button>
             </div>
-            <div class="input-field">
-                <input type="text" placeholder="Last Name">
-            </div>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="profile-item">
-            <label class="label">Contact Information:</label>
-            <div class="input-field">
-                <input type="email" placeholder="Email Address">
-            </div>
-            <div class="input-field">
-                <input type="tel" placeholder="Phone Number">
-            </div>
-        </div>
-
-        <!-- Event Details -->
-        <div class="profile-item">
-            <label class="label">Event Details:</label>
-            <div class="input-field">
-                <select>
-                    <option value="">Select Event Type</option>
-                    <option value="conference">Conference</option>
-                    <option value="workshop">Workshop</option>
-                    <option value="seminar">Seminar</option>
-                </select>
-            </div>
-            <div class="input-field">
-                <input type="date" placeholder="Preferred Date">
-            </div>
-        </div>
-
-        <!-- Additional Information -->
-        <div class="profile-item">
-            <label class="label">Additional Information:</label>
-            <div class="input-field">
-                <textarea placeholder="Special Requirements or Notes"></textarea>
-            </div>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="profile-item">
-            <button type="submit" class="submit-btn">Submit Request</button>
         </div>
     </div>
+
+    <form>
+        <mat-tab-group >
+            <mat-tab label="Personal Information">
+                <div class="tab-container">
+                    <div class="input-field">
+                        <label class="label">Name:</label>
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Email:</label>
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Department:</label>
+                        <input type="text" placeholder="Department" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label class="label">Branch:</label>
+                        <input type="text" placeholder="Branch" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Manager:</label>
+                        <input type="text" placeholder="Manager's Name" required>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Event Details">
+                <div class="tab-container">
+                    <div class="input-field">
+                        <label class="label">Event Type:</label>
+                        <select required>
+                            <option value="">Select Event Type</option>
+                            <option value="conference">Conference</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="seminar">Seminar</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Purpose:</label>
+                        <select required>
+                            <option value="">Select Attendance Purpose</option>
+                            <option value="learning">Learning</option>
+                            <option value="networking">Networking</option>
+                            <option value="presenting">Presenting</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Date:</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Location:</label>
+                        <input placeholder="Location" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Organizer:</label>
+                        <input placeholder="Organizer" required>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Travel Details">
+                <div class="tab-container">
+                    <div class="input-field">
+                        <label class="label">Mode of Travel:</label>
+                        <select required>
+                            <option value="">Mode of Travel</option>
+                            <option value="flight">Flight</option>
+                            <option value="train">Train</option>
+                            <option value="car">Car</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Travel Cost:</label>
+                        <input type="number" placeholder="Travel Cost" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Hotel Cost:</label>
+                        <input type="number" placeholder="Accommodation Cost" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Misc. Cost:</label>
+                        <input type="number" placeholder="Misc. Cost" required>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Additional Details">
+                <div class="tab-container">
+                    <label class="label">Why is this event beneficial to your role or the company?
+                    </label>
+
+                    <div class="input-field">
+                        <textarea style="height: 150px;" placeholder="Short paragraph or bullet points"
+                            required></textarea>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label>
+                            <input type="checkbox" required>
+                            I consent that I have viewed the <a href="./policy">Corporate Travel Policy</a>.
+                        </label>
+                    </div>
+
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+
+
+    </form>
 </div>
