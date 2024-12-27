@@ -8,57 +8,99 @@
     <form>
         <mat-tab-group>
             <mat-tab label="Submit A Claim">
-                    <div class="tab-container">
-                        <div class="input-field">
-                            <label class="label">Expense Title:</label>
-                            <input type="text" placeholder="Expense Title" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Assosciated Event:</label>
-                            <select required>
-                                <option *ngFor="let event of events" [value]="event.name">{{ event.name }}</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Category:</label>
-                            <select required>
-                                <option value="Travel">Travel</option>
-                                <option value="Food">Food</option>
-                                <option value="Accommodation">Accommodation</option>
-                                <option value="Accommodation">Misc.</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Date:</label>
-                            <input type="date" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Amount:</label>
-                            <input type="number" placeholder="Amount" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Currency:</label>
-                            <select required>
-                                <option value="USD">USD</option>
-                                <option value="CAD">CAD</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Description:</label>
-                            <input type="text" placeholder="Description" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Attach Receipt:</label>
-                            <input type="file" required>
-                        </div>
-                        <div class="input-field ">
-                            <button type="submit" class="btn">Submit Claim</button>
-                        </div>
+                <div class="tab-container">
+                    <div class="input-field">
+                        <label class="label">Vendor:</label>
+                        <input type="text" placeholder="Vendor" required>
                     </div>
-                </mat-tab>
-                <mat-tab label="View Past Claims">
+                    <div class="input-field">
+                        <label class="label">Assosciated Event:</label>
+                        <select required>
+                            <option *ngFor="let event of events" [value]="event.name">{{ event.name }}</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Category:</label>
+                        <select required>
+                            <option value="Travel">Travel</option>
+                            <option value="Food">Food</option>
+                            <option value="Accommodation">Accommodation</option>
+                            <option value="Accommodation">Misc.</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Date:</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Amount:</label>
+                        <input type="number" placeholder="Amount" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Currency:</label>
+                        <select required>
+                            <option value="USD">USD</option>
+                            <option value="CAD">CAD</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Description:</label>
+                        <input type="text" placeholder="Description" required>
+                    </div>
+                    <div class="input-field">
+                        <label class="label">Attach Receipt:</label>
+                        <input type="file" required>
+                    </div>
+                    <div class="input-field ">
+                        <button type="submit" class="btn">Submit Claim</button>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="View Past Claims">
+                <div class="table-container">
+                    <table mat-table [dataSource]="claims" matSort class="table">
+                        <!-- Title Column -->
+                        <ng-container matColumnDef="vendor">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Vendor </th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.vendor }} </td>
+                        </ng-container>
 
-                </mat-tab>
+                        <!-- Event Column -->
+                        <ng-container matColumnDef="event">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Event </th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.events }} </td>
+                        </ng-container>
+
+                        <!-- Category Column -->
+                        <ng-container matColumnDef="category">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Category </th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.category }} </td>
+                        </ng-container>
+
+                        <!-- Date Column -->
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Date </th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.date | date }} </td>
+                        </ng-container>
+
+                        <!-- Amount Column -->
+                        <ng-container matColumnDef="amount">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Amount </th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.amount.toString() + ' ' + claim.currency }} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Status </th>
+                            <td mat-cell *matCellDef="let claim"> {{claim.status}} </td>
+                        </ng-container>
+
+
+
+                        <tr mat-header-row *matHeaderRowDef="['vendor', 'event', 'category', 'date', 'amount', 'status']"></tr>
+                        <tr mat-row *matRowDef="let row; columns: ['vendor', 'event', 'category', 'date', 'amount', 'status'];"></tr>
+                    </table>
+                </div>
+            </mat-tab>
         </mat-tab-group>
 
 
