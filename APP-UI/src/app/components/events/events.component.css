@@ -31,6 +31,7 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 8px;
+
 }
 
 .icon {
@@ -50,7 +51,6 @@
     color: #4a4a4a;
 }
 
-/* Add these new styles for the table headers and rows */
 ::ng-deep .mat-header-cell {
     font-size: 14px;
     font-weight: 600;

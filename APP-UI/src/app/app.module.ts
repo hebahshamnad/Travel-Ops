@@ -24,7 +24,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PolicyComponent } from './components/policy/policy.component';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [

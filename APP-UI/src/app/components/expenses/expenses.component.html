@@ -2,11 +2,10 @@
     <div class="card-header">
         <div class="header-container">
             <h2 class="card-title">Expense Claims</h2>
-
         </div>
     </div>
     <form>
-        <mat-tab-group>
+        <mat-tab-group ngSkipHydration>
             <mat-tab label="Submit A Claim">
                 <div class="tab-container">
                     <div class="input-field">
@@ -14,7 +13,7 @@
                         <input type="text" placeholder="Vendor" required>
                     </div>
                     <div class="input-field">
-                        <label class="label">Assosciated Event:</label>
+                        <label class="label">Associated Event:</label>
                         <select required>
                             <option *ngFor="let event of events" [value]="event.name">{{ event.name }}</option>
                         </select>
@@ -25,7 +24,7 @@
                             <option value="Travel">Travel</option>
                             <option value="Food">Food</option>
                             <option value="Accommodation">Accommodation</option>
-                            <option value="Accommodation">Misc.</option>
+                            <option value="Misc.">Misc.</option>
                         </select>
                     </div>
                     <div class="input-field">
@@ -51,58 +50,58 @@
                         <label class="label">Attach Receipt:</label>
                         <input type="file" required>
                     </div>
-                    <div class="input-field ">
+                    <div class="input-field">
                         <button type="submit" class="btn">Submit Claim</button>
                     </div>
                 </div>
             </mat-tab>
             <mat-tab label="View Past Claims">
-                <div class="table-container">
-                    <table mat-table [dataSource]="claims" matSort class="table">
-                        <!-- Title Column -->
-                        <ng-container matColumnDef="vendor">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Vendor </th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.vendor }} </td>
-                        </ng-container>
-
-                        <!-- Event Column -->
+                <div class="card-content">
+                    <table mat-table [dataSource]="dataSource" matSort class="table">
                         <ng-container matColumnDef="event">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Event </th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">EVENT</th>
                             <td mat-cell *matCellDef="let claim"> {{ claim.events }} </td>
                         </ng-container>
 
-                        <!-- Category Column -->
-                        <ng-container matColumnDef="category">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Category </th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.category }} </td>
+                        <ng-container matColumnDef="vendor">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">VENDOR </th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.vendor }} </td>
                         </ng-container>
 
-                        <!-- Date Column -->
                         <ng-container matColumnDef="date">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Date </th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">DATE</th>
                             <td mat-cell *matCellDef="let claim"> {{ claim.date | date }} </td>
                         </ng-container>
 
-                        <!-- Amount Column -->
                         <ng-container matColumnDef="amount">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Amount </th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.amount.toString() + ' ' + claim.currency }} </td>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">AMOUNT</th>
+                            <td mat-cell *matCellDef="let claim"> {{ claim.amount | currency }} </td>
                         </ng-container>
 
-                        <ng-container matColumnDef="status">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"> Status </th>
-                            <td mat-cell *matCellDef="let claim"> {{claim.status}} </td>
+                        <ng-container matColumnDef="status" class="status">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">STATUS</th>
+                            <!-- <td mat-cell *matCellDef="let claim"> {{ claim.status }} </td> -->
+                            <td mat-cell *matCellDef="let claim">
+                                <span [ngClass]="{
+                                  'pending-status': claim.status === 'Pending',
+                                  'accepted-status': claim.status === 'Approved'
+                                }">
+                                  {{ claim.status }}
+                                </span>
+                              </td>
                         </ng-container>
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef class="header-cell"> ACTIONS </th>
+                            <td mat-cell *matCellDef="let claim">
+                              <mat-icon  matTooltip="View Claim" class="icon">open_in_new</mat-icon>
+                            </td>
+                          </ng-container>
 
-
-
-                        <tr mat-header-row *matHeaderRowDef="['vendor', 'event', 'category', 'date', 'amount', 'status']"></tr>
-                        <tr mat-row *matRowDef="let row; columns: ['vendor', 'event', 'category', 'date', 'amount', 'status'];"></tr>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
                 </div>
             </mat-tab>
         </mat-tab-group>
-
-
     </form>
 </div>

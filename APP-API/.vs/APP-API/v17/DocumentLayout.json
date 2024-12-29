@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\controllers\\claimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:controllers\\claimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|c:\\users\\shamn\\downloads\\travel-ops\\app-api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{22A4208D-6D0B-4C1B-8586-495B502959E6}|APP-API.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Event.cs",
+              "RelativeDocumentMoniker": "Event.cs",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Event.cs",
+              "RelativeToolTip": "Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T05:39:08.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EventController.cs",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Controllers\\EventController.cs",
+              "RelativeToolTip": "Controllers\\EventController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T05:39:52.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClaimController.cs",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Controllers\\ClaimController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClaimController.cs",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Controllers\\ClaimController.cs",
+              "RelativeToolTip": "Controllers\\ClaimController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAowFQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T07:04:13.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Claim.cs",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Claim.cs",
+              "RelativeDocumentMoniker": "Claim.cs",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Claim.cs",
+              "RelativeToolTip": "Claim.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T07:04:03.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DbContext.cs",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\DbContext.cs",
+              "RelativeDocumentMoniker": "DbContext.cs",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\DbContext.cs",
+              "RelativeToolTip": "DbContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwBMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T05:34:58.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-29T05:30:01.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\shamn\\Downloads\\Travel-Ops\\APP-API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-29T05:29:43.5Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

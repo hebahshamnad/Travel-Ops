@@ -6,7 +6,7 @@ export interface Claim {
   date: string; 
   amount: number;
   currency: string;
+  status: string;
   description: string;
   receiptUrl: string;
-  status: string;
 }
