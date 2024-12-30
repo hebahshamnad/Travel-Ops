@@ -4,56 +4,57 @@
             <h2 class="card-title">Expense Claims</h2>
         </div>
     </div>
-    <form>
         <mat-tab-group ngSkipHydration>
             <mat-tab label="Submit A Claim">
-                <div class="tab-container">
-                    <div class="input-field">
-                        <label class="label">Vendor:</label>
-                        <input type="text" placeholder="Vendor" required>
+                <form (ngSubmit)="onSubmit()" #claimForm="ngForm">
+                    <div class="tab-container">
+                        <div class="input-field">
+                            <label class="label">Vendor:</label>
+                            <input [(ngModel)]="claim.vendor" name="vendor" type="text" placeholder="Vendor" required>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Associated Event:</label>
+                            <select [(ngModel)]="claim.events" name="events" required>
+                                <option *ngFor="let event of events" [value]="event.name">{{ event.name }}</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Category:</label>
+                            <select [(ngModel)]="claim.category" name="category" required>
+                                <option value="Travel">Travel</option>
+                                <option value="Food">Food</option>
+                                <option value="Accommodation">Accommodation</option>
+                                <option value="Misc.">Misc.</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Date:</label>
+                            <input [(ngModel)]="claim.date" name="date" type="date" required>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Amount:</label>
+                            <input [(ngModel)]="claim.amount" name="amount" type="number" placeholder="Amount" required>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Currency:</label>
+                            <select [(ngModel)]="claim.currency" name="currency" required>
+                                <option value="USD">USD</option>
+                                <option value="CAD">CAD</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Description:</label>
+                            <input [(ngModel)]="claim.description" name="description" type="text" placeholder="Description" required>
+                        </div>
+                        <div class="input-field">
+                            <label class="label">Attach Receipt:</label>
+                            <input [(ngModel)]="claim.receiptUrl" name="receiptUrl" type="file">
+                        </div>
+                        <div class="input-field">
+                            <button type="submit" class="btn">Submit Claim</button>
+                        </div>
                     </div>
-                    <div class="input-field">
-                        <label class="label">Associated Event:</label>
-                        <select required>
-                            <option *ngFor="let event of events" [value]="event.name">{{ event.name }}</option>
-                        </select>
-                    </div>
-                    <div class="input-field">
-                        <label class="label">Category:</label>
-                        <select required>
-                            <option value="Travel">Travel</option>
-                            <option value="Food">Food</option>
-                            <option value="Accommodation">Accommodation</option>
-                            <option value="Misc.">Misc.</option>
-                        </select>
-                    </div>
-                    <div class="input-field">
-                        <label class="label">Date:</label>
-                        <input type="date" required>
-                    </div>
-                    <div class="input-field">
-                        <label class="label">Amount:</label>
-                        <input type="number" placeholder="Amount" required>
-                    </div>
-                    <div class="input-field">
-                        <label class="label">Currency:</label>
-                        <select required>
-                            <option value="USD">USD</option>
-                            <option value="CAD">CAD</option>
-                        </select>
-                    </div>
-                    <div class="input-field">
-                        <label class="label">Description:</label>
-                        <input type="text" placeholder="Description" required>
-                    </div>
-                    <div class="input-field">
-                        <label class="label">Attach Receipt:</label>
-                        <input type="file" required>
-                    </div>
-                    <div class="input-field">
-                        <button type="submit" class="btn">Submit Claim</button>
-                    </div>
-                </div>
+                </form>
             </mat-tab>
             <mat-tab label="View Past Claims">
                 <div class="card-content">
@@ -103,5 +104,5 @@
                 </div>
             </mat-tab>
         </mat-tab-group>
-    </form>
+    
 </div>

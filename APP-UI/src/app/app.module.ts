@@ -24,6 +24,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PolicyComponent } from './components/policy/policy.component';
+import { ApprovalsComponent } from './components/approvals/approvals.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PolicyComponent } from './components/policy/policy.component';
     EventsComponent,
     EventSignupComponent,
     ExpensesComponent,
-    PolicyComponent
+    PolicyComponent,
+    ApprovalsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { PolicyComponent } from './components/policy/policy.component';
     FormsModule,
     MatTooltipModule,
     MatTabsModule
-    
+
   ],
   providers: [
     provideClientHydration()

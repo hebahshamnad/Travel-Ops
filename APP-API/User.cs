@@ -1,7 +1,10 @@
 ﻿namespace APP_API
 {
     public class User
-    {   public string fullName { get; set; }
+    {
+        public int Id { get; set; }
+
+        public string fullName { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }

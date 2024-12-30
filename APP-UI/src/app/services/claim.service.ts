@@ -13,4 +13,8 @@ export class ClaimService {
   GetClaimList(): Observable<Claim[]> {
       return this.http.get<Claim[]>(this.apiUrl);
     }
+  
+    addClaim(claim: any): Observable<any> {
+      return this.http.post<Claim>(this.apiUrl, claim);
+    }
 }
