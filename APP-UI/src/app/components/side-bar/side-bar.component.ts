@@ -11,8 +11,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/home', title: 'Home', icon: 'home' },
     { path: '/user-profile', title: 'My Profile', icon: 'person' },
     { path: '/events', title: 'Events Calendar', icon: 'event' },
-    { path: '/request', title: 'Travel Approvals', icon: 'approval' },
-    { path: '/trip', title: 'Travel Booking', icon: 'flight' },
+    { path: '/approvals', title: 'Travel Approvals', icon: 'approval' },
+    { path: '/travel', title: 'Travel Booking', icon: 'flight' },
     { path: '/expenses', title: 'Expense Claims', icon: 'account_balance_wallet' },
     { path: '/policy', title: 'Travel Policy', icon: 'policy' },
 ];

@@ -6,6 +6,8 @@ import { EventsComponent } from './components/events/events.component';
 import { EventSignupComponent } from './components/events/event-signup/event-signup.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { PolicyComponent } from './components/policy/policy.component';
+import { ApprovalsComponent } from './components/approvals/approvals.component';
+import { TravelComponent } from './components/travel/travel.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -13,7 +15,10 @@ const routes: Routes = [
   {path: 'expenses', component:ExpensesComponent},
   { path: 'events/signup', component: EventSignupComponent },  
   { path: 'events', component: EventsComponent},
-  {path:'policy',component:PolicyComponent}
+  {path:'policy',component:PolicyComponent},
+  {path:'approvals',component:ApprovalsComponent},
+  {path:'travel',component:TravelComponent}
+
 
 ];
 @NgModule({
