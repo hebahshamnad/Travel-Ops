@@ -19,7 +19,7 @@ namespace APP_API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("GetClaims")]
         public ActionResult<IEnumerable<Claim>> GetClaims()
         {
             var claims = _context.Claims
@@ -41,7 +41,7 @@ namespace APP_API.Controllers
             return Ok(claims);
         }
 
-        [HttpPost]
+        [HttpPost("AddClaim")]
         public async Task<ActionResult<Claim>> AddClaim(Claim claim)
         {
             if (claim == null)

@@ -16,7 +16,7 @@ namespace APP_API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("GetEvents")]
         public ActionResult<IEnumerable<Event>> GetEvents()
         {
             var events = _context.Events

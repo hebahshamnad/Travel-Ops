@@ -1,38 +1,45 @@
 <div class="card">
-    <div class="card-header">
-        <div class="header-container">
-            <h2 class="card-title">Event Request Form</h2>
-            <div class="button-group">
-                <button type="button" class="btn">UNDO</button>
-                <button type="submit" class="btn">SUBMIT</button>
+    
+
+
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+        <div class="card-header">
+            <div class="header-container">
+                <h2 class="card-title">Event Request Form</h2>
+                <div class="input-field">
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn" (click)="onUndo()">CLEAR</button>
+                </div>
             </div>
         </div>
-    </div>
-
-    <form>
-        <mat-tab-group >
+        <!-- <div class="header-container">
+            <div class="input-field">
+                <button type="submit" class="btn">Submit Request</button>
+                <button type="button" class="btn" (click)="onUndo()">Reset Form</button>
+            </div>
+        </div> -->
+        <mat-tab-group>
             <mat-tab label="Personal Information">
                 <div class="tab-container">
                     <div class="input-field">
                         <label class="label">Name:</label>
-                        <input type="text" placeholder="Name" required>
+                        <input [(ngModel)]="signup.name" name="name" type="text" placeholder="Name">
                     </div>
                     <div class="input-field">
                         <label class="label">Email:</label>
-                        <input type="text" placeholder="Email" required>
+                        <input [(ngModel)]="signup.email" name="email" type="text" placeholder="Email">
                     </div>
                     <div class="input-field">
                         <label class="label">Department:</label>
-                        <input type="text" placeholder="Department" required>
+                        <input [(ngModel)]="signup.department" name="department" type="text" placeholder="Department">
                     </div>
-
                     <div class="input-field">
                         <label class="label">Branch:</label>
-                        <input type="text" placeholder="Branch" required>
+                        <input [(ngModel)]="signup.branch" name="branch" type="text" placeholder="Branch">
                     </div>
                     <div class="input-field">
                         <label class="label">Manager:</label>
-                        <input type="text" placeholder="Manager's Name" required>
+                        <input [(ngModel)]="signup.manager" name="manager" type="text" placeholder="Manager's Name">
                     </div>
                 </div>
             </mat-tab>
@@ -40,7 +47,7 @@
                 <div class="tab-container">
                     <div class="input-field">
                         <label class="label">Event Type:</label>
-                        <select required>
+                        <select [(ngModel)]="signup.eventType" name="eventType">
                             <option value="">Select Event Type</option>
                             <option value="conference">Conference</option>
                             <option value="workshop">Workshop</option>
@@ -49,7 +56,7 @@
                     </div>
                     <div class="input-field">
                         <label class="label">Purpose:</label>
-                        <select required>
+                        <select [(ngModel)]="signup.purpose" name="purpose">
                             <option value="">Select Attendance Purpose</option>
                             <option value="learning">Learning</option>
                             <option value="networking">Networking</option>
@@ -58,15 +65,15 @@
                     </div>
                     <div class="input-field">
                         <label class="label">Date:</label>
-                        <input type="date" required>
+                        <input [(ngModel)]="signup.date" name="date" type="date">
                     </div>
                     <div class="input-field">
                         <label class="label">Location:</label>
-                        <input placeholder="Location" required>
+                        <input [(ngModel)]="signup.location" name="location" placeholder="Location">
                     </div>
                     <div class="input-field">
                         <label class="label">Organizer:</label>
-                        <input placeholder="Organizer" required>
+                        <input [(ngModel)]="signup.organizer" name="organizer" placeholder="Organizer">
                     </div>
                 </div>
             </mat-tab>
@@ -74,7 +81,7 @@
                 <div class="tab-container">
                     <div class="input-field">
                         <label class="label">Mode of Travel:</label>
-                        <select required>
+                        <select [(ngModel)]="signup.mode" name="mode">
                             <option value="">Mode of Travel</option>
                             <option value="flight">Flight</option>
                             <option value="train">Train</option>
@@ -83,44 +90,39 @@
                     </div>
                     <div class="input-field">
                         <label class="label">Registration Cost:</label>
-                        <input type="number" placeholder="Registration Cost" required>
+                        <input [(ngModel)]="signup.registrationCost" name="registrationCost" type="number"
+                            placeholder="Registration Cost">
                     </div>
                     <div class="input-field">
                         <label class="label">Travel Cost:</label>
-                        <input type="number" placeholder="Travel Cost" required>
+                        <input [(ngModel)]="signup.travelCost" name="travelCost" type="number"
+                            placeholder="Travel Cost">
                     </div>
                     <div class="input-field">
                         <label class="label">Hotel Cost:</label>
-                        <input type="number" placeholder="Accommodation Cost" required>
+                        <input [(ngModel)]="signup.hotelCost" name="hotelCost" type="number"
+                            placeholder="Accommodation Cost">
                     </div>
                     <div class="input-field">
                         <label class="label">Misc. Cost:</label>
-                        <input type="number" placeholder="Misc. Cost" required>
+                        <input [(ngModel)]="signup.miscCost" name="miscCost" type="number" placeholder="Misc. Cost">
                     </div>
                 </div>
             </mat-tab>
             <mat-tab label="Additional Details">
                 <div class="tab-container">
-                    <label class="label">Why is this event beneficial to your role or the company?
-                    </label>
-
                     <div class="input-field">
-                        <textarea style="height: 150px;" placeholder="Short paragraph or bullet points"
-                            required></textarea>
+                        <label class="label">Why is this event beneficial to your role or the company?</label>
                     </div>
-                    <br>
-
-                    <div>
-                        <label>
-                            <input type="checkbox" required>
-                            I consent that I have viewed the <a href="./policy" target="_blank">Corporate Travel Policy</a>.
-                        </label>
-                    </div>
+                    <div class="input-field"><textarea [(ngModel)]="signup.description" name="description"
+                            style="height: 150px;" placeholder="Short paragraph or bullet points"></textarea></div>
+                    <label>
+                        <input type="checkbox" required>
+                        I consent that I have viewed the <a href="./policy" target="_blank">Corporate Travel Policy</a>.
+                    </label>
 
                 </div>
             </mat-tab>
         </mat-tab-group>
-
-
     </form>
 </div>

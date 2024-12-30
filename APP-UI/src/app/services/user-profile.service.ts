@@ -14,6 +14,6 @@ export class UserProfileService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User> {
-    return this.http.get<User>(this.apiUrl);
+    return this.http.get<User>(`${this.apiUrl}/GetUsers`);
   }
    }

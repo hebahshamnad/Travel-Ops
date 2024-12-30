@@ -7,7 +7,7 @@ namespace APP_API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
-    {   [HttpGet]
+    {   [HttpGet("GetUsers")]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
             var users = 

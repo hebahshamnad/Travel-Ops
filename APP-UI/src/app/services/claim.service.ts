@@ -11,10 +11,10 @@ export class ClaimService {
   constructor(private http:HttpClient) { }
 
   GetClaimList(): Observable<Claim[]> {
-      return this.http.get<Claim[]>(this.apiUrl);
+      return this.http.get<Claim[]>(`${this.apiUrl}/GetClaims`);
     }
   
     addClaim(claim: any): Observable<any> {
-      return this.http.post<Claim>(this.apiUrl, claim);
+      return this.http.post<Claim>(`${this.apiUrl}/AddClaim`, claim);
     }
 }

@@ -53,18 +53,13 @@ namespace APP_API.Controllers
             {
                 return BadRequest("Signup data is null.");
             }
-            signup.Id = GenerateId();
+            //signup.Id = GenerateId();
             _context.Signups.Add(signup);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetSignups), new { id = signup.Id }, signup);
         }
 
-        private int GenerateId()
-        {
-            // Get the maximum existing Id and increment it
-            var maxId = _context.Signups.Max(c => (int?)c.Id) ?? 0;
-            return maxId + 1;
-        }
+        
     }
 }
