@@ -12,16 +12,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ApprovalsComponent implements OnInit {
   signups: MatTableDataSource<Signup>;
+  employeeSignups: MatTableDataSource<Signup>;
   pendingSignups: MatTableDataSource<Signup>;
+  pendingEmpSignups: MatTableDataSource<Signup>;
+
 
   isManager: boolean = true;
-  pastColumns: string[] = ['name', 'event', 'date', 'totalCost', 'status', 'actions'];
-  pendingColumns: string[] = ['name', 'event', 'date', 'totalCost', 'actions'];
+  pastMngCol: string[] = ['name', 'event', 'date', 'totalCost', 'status', 'actions'];
+  pastEmpCol: string[] = ['event', 'date', 'location','totalCost', 'status', 'actions'];
+
+  pendingMngColumns: string[] = ['name', 'event', 'date', 'totalCost', 'actions'];
+  pendingEmpColumns: string[] = ['event', 'date', 'location','totalCost','actions'];
+
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private signupService: SignupService, private snackBar: MatSnackBar) {
     this.signups = new MatTableDataSource<Signup>();
     this.pendingSignups = new MatTableDataSource<Signup>();
+    this.employeeSignups= new MatTableDataSource<Signup>();
+    this.pendingEmpSignups = new MatTableDataSource<Signup>();
+
   }
 
   ngOnInit() {
@@ -36,6 +46,9 @@ export class ApprovalsComponent implements OnInit {
     this.signupService.getSignups().subscribe(data => {
       this.signups.data = data.filter((signup: Signup) => signup.status != 'Pending');
       this.pendingSignups.data = data.filter((signup: Signup) => signup.status == 'Pending');
+      this.employeeSignups.data = data.filter((signup: Signup) => signup.name == 'John Doe');
+      this.pendingEmpSignups.data = data.filter((signup: Signup) => signup.status === 'Pending' && signup.name === 'John Doe');
+
     });
   }
 

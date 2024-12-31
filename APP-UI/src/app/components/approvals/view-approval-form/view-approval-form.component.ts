@@ -8,6 +8,8 @@ import { Signup } from '../../../models/signup.model'; // Import Signup model
 })
 export class ViewApprovalFormComponent {
   @Input() signup!: Signup;  // Declare signup with the correct type (Signup model)
+  @Input() isManager: boolean = false; // Default to false in case no value is passed
+
   @Output() approve = new EventEmitter<number>();
   @Output() reject = new EventEmitter<number>();
   @Output() goBack = new EventEmitter<void>();

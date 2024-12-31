@@ -4,8 +4,8 @@
     <div class="form-container">
         <!-- Personal Information Section -->
         <div class="button-section">
-            <button type="button" class="btn approve" (click)="approve.emit(signup.id)">Approve</button>
-            <button type="button" class="btn reject" (click)="reject.emit(signup.id)">Reject</button>
+            <button type="button" *ngIf="isManager"class="btn approve" (click)="approve.emit(signup.id)">Approve</button>
+            <button type="button" *ngIf="isManager" class="btn reject" (click)="reject.emit(signup.id)">Reject</button>
             <button type="button" class="btn" (click)="goBack.emit()">Back</button>
         </div>
         <div class="section">
