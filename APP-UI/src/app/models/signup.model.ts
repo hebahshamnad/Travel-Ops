@@ -17,6 +17,5 @@ export interface Signup {
   miscCost: number;
   description: string;
   status: string;
-  GenDate: string;
 
 }

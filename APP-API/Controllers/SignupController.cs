@@ -41,8 +41,8 @@ namespace APP_API.Controllers
                     s.HotelCost,
                     s.MiscCost,
                     s.Description,
-                    s.Status,
-                    s.GenDate})
+                    s.Status
+                   })
                 .ToList();
 
             return Ok(signups);
@@ -55,7 +55,6 @@ namespace APP_API.Controllers
             {
                 return BadRequest("Signup data is null.");
             }
-            signup.GenDate = DateTime.Now;
 
             _context.Signups.Add(signup);
             await _context.SaveChangesAsync();

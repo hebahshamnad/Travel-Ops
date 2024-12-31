@@ -63,7 +63,7 @@ export class ApprovalsComponent implements OnInit {
     this.signupService.changeStatus(id, "Approved").subscribe({
       next: () => {
         this.snackBar.open('Form Approved!', 'Close', {
-          duration: 3000000,
+          duration: 3000,
           verticalPosition: 'top',
           horizontalPosition: 'right',
           panelClass: ['snackbar-green']

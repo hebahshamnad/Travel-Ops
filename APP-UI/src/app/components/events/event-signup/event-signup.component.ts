@@ -29,8 +29,7 @@ export class EventSignupComponent implements OnInit {
     hotelCost: 0,
     miscCost: 0,
     description: '',
-    status: 'Pending',
-    GenDate: ''
+    status: 'Pending'
   };
 
   constructor(
@@ -50,6 +49,7 @@ export class EventSignupComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.signup)
     if (this.signup.date) {
       const date = new Date(this.signup.date);
       if (!isNaN(date.getTime())) {
@@ -103,8 +103,6 @@ export class EventSignupComponent implements OnInit {
       hotelCost: 0,
       miscCost: 0,
       description: '',
-      status: 'Pending',
-      GenDate: ''
-    };
+      status: 'Pending'    };
   }
 }

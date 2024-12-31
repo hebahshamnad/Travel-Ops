@@ -13,11 +13,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user-profile', component: UserProfileComponent },
   {path: 'expenses', component:ExpensesComponent},
-  { path: 'events/signup', component: EventSignupComponent },  
+  { path: 'travel', component: EventSignupComponent },  
   { path: 'events', component: EventsComponent},
   {path:'policy',component:PolicyComponent},
-  {path:'approvals',component:ApprovalsComponent},
-  {path:'travel',component:TravelComponent}
+  {path:'approvals',component:ApprovalsComponent}
+  // {path:'travel',component:TravelComponent}
 
 
 ];

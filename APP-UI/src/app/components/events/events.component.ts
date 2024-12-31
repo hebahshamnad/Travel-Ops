@@ -36,7 +36,7 @@ export class EventsComponent implements OnInit {
   signUpforEvent(event: Event){
     console.log(event)
     
-    this.router.navigateByUrl('events/signup')
+    this.router.navigateByUrl('/travel')
 
   }
 }
