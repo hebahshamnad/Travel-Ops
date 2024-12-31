@@ -3,7 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SignupService } from '../../services/signup.service';
 import { Signup } from '../../models/signup.model';
-import { MatSnackBar } from '@angular/material/snack-bar'; 
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-approvals',
@@ -19,7 +19,7 @@ export class ApprovalsComponent implements OnInit {
   pendingColumns: string[] = ['name', 'event', 'date', 'totalCost', 'actions'];
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private signupService: SignupService,private snackBar: MatSnackBar) {
+  constructor(private signupService: SignupService, private snackBar: MatSnackBar) {
     this.signups = new MatTableDataSource<Signup>();
     this.pendingSignups = new MatTableDataSource<Signup>();
   }
@@ -35,12 +35,10 @@ export class ApprovalsComponent implements OnInit {
   loadSignups() {
     this.signupService.getSignups().subscribe(data => {
       this.signups.data = data.filter((signup: Signup) => signup.status != 'Pending');
-
       this.pendingSignups.data = data.filter((signup: Signup) => signup.status == 'Pending');
-
-
     });
   }
+
 
   selectedSignup: any = null;
 
@@ -54,7 +52,7 @@ export class ApprovalsComponent implements OnInit {
         this.snackBar.open('Form Approved!', 'Close', {
           duration: 3000000,
           verticalPosition: 'top',
-          horizontalPosition:'right',
+          horizontalPosition: 'right',
           panelClass: ['snackbar-green']
 
         });
@@ -65,7 +63,7 @@ export class ApprovalsComponent implements OnInit {
         this.snackBar.open('Approval Error', 'Close', {
           duration: 3000,
           verticalPosition: 'top',
-          horizontalPosition:'right'
+          horizontalPosition: 'right'
         });
         console.error('Error changing status:', err);
       }
@@ -78,7 +76,7 @@ export class ApprovalsComponent implements OnInit {
         this.snackBar.open('Form Rejected!', 'Close', {
           duration: 3000,
           verticalPosition: 'top',
-          horizontalPosition:'right',
+          horizontalPosition: 'right',
           panelClass: ['snackbar-red']
 
         });
@@ -89,7 +87,7 @@ export class ApprovalsComponent implements OnInit {
         this.snackBar.open('Rejection Error', 'Close', {
           duration: 3000,
           verticalPosition: 'top',
-          horizontalPosition:'right'
+          horizontalPosition: 'right'
         });
         console.error('Error changing status:', err);
       }
@@ -100,13 +98,13 @@ export class ApprovalsComponent implements OnInit {
     this.selectedSignup = null;
     this.loadSignups();
   }
-  changeView(){
-    if (this.isManager==true) {
-      this.isManager=false
+  changeView() {
+    if (this.isManager == true) {
+      this.isManager = false
     }
-    else{
-      this.isManager=true;
+    else {
+      this.isManager = true;
     }
-
+    this.loadSignups();
   }
 }

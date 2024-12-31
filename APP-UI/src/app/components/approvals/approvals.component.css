@@ -16,6 +16,12 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
+.header-container {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
 .card-title {
     margin: 0;
     font-size: 1.75em;
@@ -29,9 +35,10 @@
 
 .input-field {
     display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
-  }
-  
+    justify-content: flex-end;
+    /* Align buttons to the right */
+}
+
 .btn {
     background-color: darkcyan;
     color: white;
@@ -43,11 +50,11 @@
     transition: background-color 0.2s;
     padding: 10px 20px;
     margin: 0px 10px;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     background-color: teal;
-  }
+}
 
 .pending-status {
     background-color: yellow;
@@ -81,4 +88,3 @@
 .icon {
     padding: 0px 20px;
 }
-

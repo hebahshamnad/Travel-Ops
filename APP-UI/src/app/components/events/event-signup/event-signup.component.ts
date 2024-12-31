@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../../../services/signup.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { EventsService } from '../../../services/events.service';
+import { Event } from '../../../models/event.model';
 @Component({
   selector: 'app-event-signup',
   templateUrl: './event-signup.component.html',
   styleUrl: './event-signup.component.css'
 })
 export class EventSignupComponent implements OnInit {
+  dropdownOptions: string[] = []; 
+  events: Event[] = []; 
+
   signup = {
     name: '',
     email: '',
@@ -31,10 +35,19 @@ export class EventSignupComponent implements OnInit {
 
   constructor(
     private signupService: SignupService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private eventsService: EventsService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.fetchEvents();
+  }
+
+  fetchEvents(): void {
+    this.eventsService.GetEvents().subscribe((data: Event[]) => {
+      this.events = data;
+      this.dropdownOptions = data.map(event => event.name); });
+  }
 
   onSubmit() {
     if (this.signup.date) {

@@ -1,5 +1,5 @@
 <div class="card">
-    
+
 
 
     <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-      
+
         <mat-tab-group>
             <mat-tab label="Personal Information">
                 <div class="tab-container">
@@ -41,13 +41,11 @@
             <mat-tab label="Event Details">
                 <div class="tab-container">
                     <div class="input-field">
-                        <label class="label">Event Type:</label>
-                        <select [(ngModel)]="signup.eventType" name="eventType">
-                            <option value="">Select Event Type</option>
-                            <option value="conference">Conference</option>
-                            <option value="workshop">Workshop</option>
-                            <option value="seminar">Seminar</option>
+                        <label class="label">Event Name:</label>
+                        <select [(ngModel)]="signup.eventType" name="eventType" id="eventType">
+                            <option *ngFor="let option of dropdownOptions" [value]="option">{{ option }}</option>
                         </select>
+
                     </div>
                     <div class="input-field">
                         <label class="label">Purpose:</label>

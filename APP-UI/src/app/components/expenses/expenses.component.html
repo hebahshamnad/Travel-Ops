@@ -56,7 +56,7 @@
                     </div>
                 </form>
             </mat-tab>
-            <mat-tab label="View Past Claims">
+            <mat-tab label="View All Claims">
                 <div class="card-content">
                     <table mat-table [dataSource]="dataSource" matSort class="table">
                         <ng-container matColumnDef="event">
@@ -81,7 +81,6 @@
 
                         <ng-container matColumnDef="status" class="status">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">STATUS</th>
-                            <!-- <td mat-cell *matCellDef="let claim"> {{ claim.status }} </td> -->
                             <td mat-cell *matCellDef="let claim">
                                 <span [ngClass]="{
                                   'pending-status': claim.status === 'Pending',
