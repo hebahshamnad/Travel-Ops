@@ -21,3 +21,11 @@ body {
     background: gray;
     border-radius: 10px;
 }
+.snackbar-red {
+    background: #c84c43 !important;
+}
+
+.snackbar-green {
+    background: rgb(135, 183, 64) !important;
+
+}

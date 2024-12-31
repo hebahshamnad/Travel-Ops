@@ -40,7 +40,9 @@ namespace APP_API.Controllers
                     s.TravelCost,
                     s.HotelCost,
                     s.MiscCost,
-                    s.Description                })
+                    s.Description,
+                    s.Status,
+                    s.GenDate})
                 .ToList();
 
             return Ok(signups);
@@ -53,13 +55,34 @@ namespace APP_API.Controllers
             {
                 return BadRequest("Signup data is null.");
             }
-            //signup.Id = GenerateId();
+            signup.GenDate = DateTime.Now;
+
             _context.Signups.Add(signup);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetSignups), new { id = signup.Id }, signup);
         }
 
-        
-    }
+        [HttpPut("ChangeStatus")]
+        public async Task<ActionResult> ChangeStatus(int id,string status)
+        {
+            // Find the signup by id
+            var signup = await _context.Signups.FindAsync(id);
+
+            if (signup == null)
+            {
+                return NotFound($"Signup with ID {id} not found.");
+            }
+
+            // Update the status to "Approved"
+            signup.Status = status;
+
+            // Save the changes
+            await _context.SaveChangesAsync();
+
+            return NoContent(); // Return 204 No Content as a success response
+        }
+    
+
+}
 }

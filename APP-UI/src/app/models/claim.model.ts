@@ -9,4 +9,5 @@ export interface Claim {
   status: string;
   description: string;
   receiptUrl: string;
+  GenDate: string;
 }

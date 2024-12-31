@@ -24,7 +24,9 @@ export class EventSignupComponent implements OnInit {
     travelCost: 0,
     hotelCost: 0,
     miscCost: 0,
-    description: ''
+    description: '',
+    status: 'Pending',
+    GenDate: ''
   };
 
   constructor(
@@ -87,7 +89,9 @@ export class EventSignupComponent implements OnInit {
       travelCost: 0,
       hotelCost: 0,
       miscCost: 0,
-      description: ''
+      description: '',
+      status: 'Pending',
+      GenDate: ''
     };
   }
 }

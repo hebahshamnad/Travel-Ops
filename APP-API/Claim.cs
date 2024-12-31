@@ -12,6 +12,7 @@
 
         public string Description { get; set; }
         public string ReceiptUrl { get; set; }
+        public DateTime GenDate { get; set; }
 
     }
 }

@@ -23,7 +23,11 @@ public class Signup
     public decimal MiscCost { get; set; }
 
     public string Description { get; set; }
+    public string Status { get; set; }
+
+    public DateTime GenDate { get; set; }
 
 
-   
+
+
 }

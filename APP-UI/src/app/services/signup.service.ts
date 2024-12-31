@@ -18,4 +18,8 @@ export class SignupService {
   addSignup(signup: Signup): Observable<Signup> {
     return this.http.post<Signup>(`${this.apiUrl}/AddSignup`, signup);
   }
+  changeStatus(id: number, status: string): Observable<void> {
+    const params = { id: id.toString(), status }; // Pass id and status as query parameters
+    return this.http.put<void>(`${this.apiUrl}/ChangeStatus`, null, { params });
+  }
 }

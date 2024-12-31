@@ -1,0 +1,100 @@
+<form #signupForm="ngForm">
+
+
+    <div class="form-container">
+        <!-- Personal Information Section -->
+        <div class="button-section">
+            <button type="button" class="btn approve" (click)="approve.emit(signup.id)">Approve</button>
+            <button type="button" class="btn reject" (click)="reject.emit(signup.id)">Reject</button>
+            <button type="button" class="btn" (click)="goBack.emit()">Back</button>
+        </div>
+        <div class="section">
+            <h3>Personal Information</h3>
+            <div class="input-field">
+                <label class="label">Name:</label>
+                <input readonly [(ngModel)]="signup.name" name="name" type="text" placeholder="Name">
+                <label class="label">Manager:</label>
+                <input readonly [(ngModel)]="signup.manager" name="manager" type="text" placeholder="Manager's Name">
+            </div>
+
+            <div class="input-field">
+                <label class="label">Department:</label>
+                <input readonly [(ngModel)]="signup.department" name="department" type="text" placeholder="Department">
+
+                <label class="label">Branch:</label>
+                <input readonly [(ngModel)]="signup.branch" name="branch" type="text" placeholder="Branch">
+            </div>
+            <div class="input-field">
+                <label class="label">Email:</label>
+                <input readonly [(ngModel)]="signup.email" name="email" type="text" placeholder="Email">
+
+            </div>
+        </div>
+
+        <!-- Event Details Section -->
+        <div class="section">
+            <h3>Event Details</h3>
+            <div class="input-field">
+                <label class="label">Event Type:</label>
+                <input readonly [(ngModel)]="signup.eventType" name="eventType" type="text" placeholder="eventType">
+
+
+
+            </div>
+            <div class="input-field">
+                <label class="label">Date:</label>
+                <input readonly [(ngModel)]="signup.date" name="date" type="date">
+                <label class="label">Location:</label>
+                <input readonly [(ngModel)]="signup.location" name="location" placeholder="Location">
+            </div>
+            <div class="input-field">
+                <label class="label">Purpose:</label>
+                <input readonly [(ngModel)]="signup.purpose" name="purpose" placeholder="Purpose">
+                <label class="label">Organizer:</label>
+                <input readonly [(ngModel)]="signup.organizer" name="organizer" placeholder="Organizer">
+            </div>
+        </div>
+
+        <!-- Travel Details Section -->
+        <div class="section">
+            <h3>Travel Details</h3>
+            <div class="input-field">
+                <label class="label">Mode of Travel:</label>
+                <input readonly [(ngModel)]="signup.mode" name="mode">
+                <label class="label">Total Cost:</label>
+                <input readonly
+                    [value]="signup.registrationCost + signup.travelCost + signup.hotelCost + signup.miscCost | currency"
+                    name="totalCost">
+            </div>
+            <div class="input-field">
+                <label class="label">Registration :</label>
+                <input readonly [(ngModel)]="signup.registrationCost" name="registrationCost" type="number"
+                    placeholder="Registration ">
+
+                <label class="label">Travel :</label>
+                <input readonly [(ngModel)]="signup.travelCost" name="travelCost" type="number" placeholder="Travel ">
+            </div>
+            <div class="input-field">
+                <label class="label">Hotel :</label>
+                <input readonly [(ngModel)]="signup.hotelCost" name="hotelCost" type="number"
+                    placeholder="Accommodation ">
+
+                <label class="label">Misc. :</label>
+                <input readonly [(ngModel)]="signup.miscCost" name="miscCost" type="number" placeholder="Misc. ">
+            </div>
+        </div>
+
+        <!-- Additional Details Section -->
+        <div class="section">
+            <h3>Additional Details</h3>
+            <div class="input-field">
+                <label class="label">Why is this event beneficial to your role or the company?</label>
+            </div>
+            <div class="input-field">
+                <textarea [(ngModel)]="signup.description" name="description" style="height: 150px;"
+                    placeholder="Short paragraph or bullet points"></textarea>
+            </div>
+
+        </div>
+    </div>
+</form>

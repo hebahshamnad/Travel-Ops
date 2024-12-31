@@ -16,4 +16,7 @@ export interface Signup {
   hotelCost: number;
   miscCost: number;
   description: string;
+  status: string;
+  GenDate: string;
+
 }

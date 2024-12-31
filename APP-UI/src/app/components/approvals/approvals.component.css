@@ -26,3 +26,59 @@
 .card-content {
     padding: 24px;
 }
+
+.input-field {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+  }
+  
+.btn {
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 10px 20px;
+    margin: 0px 10px;
+  }
+  
+  .btn:hover {
+    background-color: teal;
+  }
+
+.pending-status {
+    background-color: yellow;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.accepted-status {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.rejected-status {
+    background-color: rgb(218, 32, 32);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+::ng-deep .mat-header-cell {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 16px;
+}
+
+
+.icon {
+    padding: 0px 20px;
+}
+

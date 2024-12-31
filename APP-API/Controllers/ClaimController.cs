@@ -34,7 +34,8 @@ namespace APP_API.Controllers
                     e.Currency,
                     e.Status,
                     e.Description,
-                    e.ReceiptUrl
+                    e.ReceiptUrl,
+                    e.GenDate
                 })
                 .ToList();
 
@@ -49,6 +50,8 @@ namespace APP_API.Controllers
                 return BadRequest("Claim data is null.");
             }
             claim.ClaimId = GenerateClaimId();
+            claim.GenDate = DateTime.Now;  
+
 
             _context.Claims.Add(claim);
 
