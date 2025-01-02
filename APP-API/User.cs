@@ -17,7 +17,7 @@
         public string city { get; set; }
         public string country { get; set; }
         public EmergencyContact emergencyContact { get; set; }
-        public NotificationPreferences notificationPreferences { get; set; }
+        public Preference preference { get; set; }
         public class EmergencyContact
         {
             public string Name { get; set; }
@@ -25,11 +25,11 @@
             public string PhoneNumber { get; set; }
         }
 
-        public class NotificationPreferences
+        public class Preference
         {
-            public bool EmailNotifications { get; set; }
-            public bool SmsNotifications { get; set; }
-            public bool AppNotifications { get; set; }
+            public bool email { get; set; }
+            public bool sms { get; set; }
+            public bool app { get; set; }
         }
 
 

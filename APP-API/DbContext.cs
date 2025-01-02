@@ -10,6 +10,8 @@ public class AppDbContext : DbContext
 
     public DbSet<Event> Events { get; set; }
     public DbSet<Claim> Claims { get; set; }
+    public DbSet<User> Users { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -21,5 +23,7 @@ public class AppDbContext : DbContext
            .HasKey(e => e.ClaimId);
         modelBuilder.Entity<Signup>()
             .HasKey(e => e.Id);
+        modelBuilder.Entity<User>()
+            .HasKey(u => u.Id);
     }
 }

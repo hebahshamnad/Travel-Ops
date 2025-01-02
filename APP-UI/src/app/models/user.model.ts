@@ -13,7 +13,7 @@ export interface User {
   city: string;
   country: string;
   emergencyContact: EmergencyContact;
-  notificationPreferences: NotificationPreferences;
+  preference: Preference;
 }
 
 export interface EmergencyContact {
@@ -22,8 +22,8 @@ export interface EmergencyContact {
   phoneNumber: string;
 }
 
-export interface NotificationPreferences {
-  emailNotifications: boolean;
-  smsNotifications: boolean;
-  appNotifications: boolean;
+export interface Preference {
+  email: boolean;
+  sms: boolean;
+  app: boolean;
 }

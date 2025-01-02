@@ -30,11 +30,11 @@ namespace APP_API.Controllers
                     Relationship = "Spouse",
                     PhoneNumber = "111-222-3333"
                 },
-                notificationPreferences = new NotificationPreferences
+                preference = new Preference
                 {
-                    EmailNotifications = true,
-                    SmsNotifications = false,
-                    AppNotifications = true
+                    email = true,
+                    sms = false,
+                    app = true
                 }, 
         
               

@@ -85,14 +85,14 @@
       <label class="label">Email Notifications: </label>
       <div class="input-field">
         <div class="profile-item"><input  *ngIf="dataSource" type="checkbox"
-            [(ngModel)]="dataSource.notificationPreferences.emailNotifications" disabled></div>
+            [(ngModel)]="dataSource.preference.email" disabled></div>
       </div>
     </div>
     <div class="profile-item">
       <label class="label">App Notifications: </label>
       <div class="input-field">
         <div class="profile-item"><input  *ngIf="dataSource" type="checkbox"
-            [(ngModel)]="dataSource.notificationPreferences.appNotifications" disabled></div>
+            [(ngModel)]="dataSource.preference.app" disabled></div>
       </div>
     </div>
 
@@ -100,7 +100,7 @@
       <label class="label">SMS Notifications: </label>
       <div class="input-field">
         <div class="profile-item"><input  *ngIf="dataSource" type="checkbox"
-            [(ngModel)]="dataSource.notificationPreferences.smsNotifications" disabled></div>
+            [(ngModel)]="dataSource.preference.sms" disabled></div>
       </div>
     </div>
 
