@@ -49,6 +49,8 @@ export class ExpensesComponent implements OnInit, AfterViewInit {
   fetchClaims(): void {
     this.claimService.GetClaimList().subscribe((data: Claim[]) => {
       this.dataSource.data = data;
+      this.dataSource.sort = this.sort;
+
     });
   }
 

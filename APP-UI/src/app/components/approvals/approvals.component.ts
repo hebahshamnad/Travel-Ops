@@ -36,10 +36,18 @@ export class ApprovalsComponent implements OnInit {
 
   ngOnInit() {
     this.loadSignups();
+    this.signups.sort = this.sort;
+    this.employeeSignups.sort = this.sort;
+    this.pendingSignups.sort = this.sort;
+    this.pendingEmpSignups.sort = this.sort;
+
   }
 
   ngAfterViewInit() {
     this.signups.sort = this.sort;
+    this.employeeSignups.sort = this.sort;
+    this.pendingSignups.sort = this.sort;
+    this.pendingEmpSignups.sort = this.sort;
   }
 
   loadSignups() {
@@ -48,7 +56,10 @@ export class ApprovalsComponent implements OnInit {
       this.pendingSignups.data = data.filter((signup: Signup) => signup.status == 'Pending');
       this.employeeSignups.data = data.filter((signup: Signup) => signup.name == 'John Doe');
       this.pendingEmpSignups.data = data.filter((signup: Signup) => signup.status === 'Pending' && signup.name === 'John Doe');
-
+      this.signups.sort = this.sort;
+    this.employeeSignups.sort = this.sort;
+    this.pendingSignups.sort = this.sort;
+    this.pendingEmpSignups.sort = this.sort;
     });
   }
 
@@ -57,6 +68,10 @@ export class ApprovalsComponent implements OnInit {
 
   viewRequest(signupData: any) {
     this.selectedSignup = signupData;
+    this.signups.sort = this.sort;
+    this.employeeSignups.sort = this.sort;
+    this.pendingSignups.sort = this.sort;
+    this.pendingEmpSignups.sort = this.sort;
   }
 
   approve(id: number): void {

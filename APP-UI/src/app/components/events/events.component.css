@@ -37,12 +37,7 @@
 .icon {
     margin: 0 8px;
     cursor: pointer;
-    color: darkcyan;
     transition: color 0.2s ease;
-}
-
-.icon:hover {
-    color: teal;
 }
 
 .table td {
