@@ -25,8 +25,8 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PolicyComponent } from './components/policy/policy.component';
 import { ApprovalsComponent } from './components/approvals/approvals.component';
-import { TravelComponent } from './components/travel/travel.component';
 import { ViewApprovalFormComponent } from './components/approvals/view-approval-form/view-approval-form.component';
+import { ViewExpFormComponent } from './components/expenses/view-exp-form/view-exp-form.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +40,8 @@ import { ViewApprovalFormComponent } from './components/approvals/view-approval-
     ExpensesComponent,
     PolicyComponent,
     ApprovalsComponent,
-    TravelComponent,
-    ViewApprovalFormComponent
+    ViewApprovalFormComponent,
+    ViewExpFormComponent
   ],
   imports: [
     BrowserModule,

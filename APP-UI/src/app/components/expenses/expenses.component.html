@@ -4,104 +4,62 @@
             <h2 class="card-title">Expense Claims</h2>
         </div>
     </div>
-        <mat-tab-group ngSkipHydration>
-            <mat-tab label="Submit A Claim">
-                <form (ngSubmit)="onSubmit()" #claimForm="ngForm">
-                    <div class="tab-container">
-                        <div class="input-field">
-                            <label class="label">Vendor:</label>
-                            <input [(ngModel)]="claim.vendor" name="vendor" type="text" placeholder="Vendor" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Associated Event:</label>
-                            <select [(ngModel)]="claim.events" name="events" required>
-                                <option *ngFor="let event of events" [value]="event.name">{{ event.name }}</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Category:</label>
-                            <select [(ngModel)]="claim.category" name="category" required>
-                                <option value="Travel">Travel</option>
-                                <option value="Food">Food</option>
-                                <option value="Accommodation">Accommodation</option>
-                                <option value="Misc.">Misc.</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Date:</label>
-                            <input [(ngModel)]="claim.date" name="date" type="date" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Amount:</label>
-                            <input [(ngModel)]="claim.amount" name="amount" type="number" placeholder="Amount" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Currency:</label>
-                            <select [(ngModel)]="claim.currency" name="currency" required>
-                                <option value="USD">USD</option>
-                                <option value="CAD">CAD</option>
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Description:</label>
-                            <input [(ngModel)]="claim.description" name="description" type="text" placeholder="Description" required>
-                        </div>
-                        <div class="input-field">
-                            <label class="label">Attach Receipt:</label>
-                            <input [(ngModel)]="claim.receiptUrl" name="receiptUrl" type="file">
-                        </div>
-                        <div class="input-field">
-                            <button type="submit" class="btn">Submit Claim</button>
-                        </div>
-                    </div>
-                </form>
-            </mat-tab>
-            <mat-tab label="View All Claims">
-                <div class="card-content">
-                    <table mat-table [dataSource]="dataSource" matSort class="table">
-                        <ng-container matColumnDef="event">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">EVENT</th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.events }} </td>
-                        </ng-container>
+    <mat-tab-group (selectedTabChange)="onTabChange($event)" ngSkipHydration>
+        <mat-tab label="Submit A Claim">
+            <app-view-exp-form  (goBack)="goBack()"  [isSubmit]="isSubmit" [events]="events" [claim]="claim" (onSubmit)="onSubmit()">
+            </app-view-exp-form>
+           
+        </mat-tab>
+        <mat-tab label="View All Claims">
+            <div *ngIf="showForm">
+                <app-view-exp-form (goBack)="goBack()" [isSubmit]="isSubmit" [events]="events" [claim]="claim" (onSubmit)="onSubmit()">
+                </app-view-exp-form>
+            </div>
+            <div class="card-content" *ngIf="!showForm">
+                <table mat-table [dataSource]="dataSource" matSort class="table">
+                    <ng-container matColumnDef="event">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">EVENT</th>
+                        <td mat-cell *matCellDef="let claim"> {{ claim.events }} </td>
+                    </ng-container>
 
-                        <ng-container matColumnDef="vendor">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">VENDOR </th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.vendor }} </td>
-                        </ng-container>
+                    <ng-container matColumnDef="vendor">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">VENDOR </th>
+                        <td mat-cell *matCellDef="let claim"> {{ claim.vendor }} </td>
+                    </ng-container>
 
-                        <ng-container matColumnDef="date">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">DATE</th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.date | date }} </td>
-                        </ng-container>
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">DATE</th>
+                        <td mat-cell *matCellDef="let claim"> {{ claim.date | date }} </td>
+                    </ng-container>
 
-                        <ng-container matColumnDef="amount">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">AMOUNT</th>
-                            <td mat-cell *matCellDef="let claim"> {{ claim.amount | currency }} </td>
-                        </ng-container>
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">AMOUNT</th>
+                        <td mat-cell *matCellDef="let claim"> {{ claim.amount | currency }} </td>
+                    </ng-container>
 
-                        <ng-container matColumnDef="status" class="status">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">STATUS</th>
-                            <td mat-cell *matCellDef="let claim">
-                                <span [ngClass]="{
+                    <ng-container matColumnDef="status" class="status">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">STATUS</th>
+                        <td mat-cell *matCellDef="let claim">
+                            <span [ngClass]="{
                                   'pending-status': claim.status === 'Pending',
                                   'accepted-status': claim.status === 'Approved'
                                 }">
-                                  {{ claim.status }}
-                                </span>
-                              </td>
-                        </ng-container>
-                        <ng-container matColumnDef="actions">
-                            <th mat-header-cell *matHeaderCellDef class="header-cell"> ACTIONS </th>
-                            <td mat-cell *matCellDef="let claim">
-                              <mat-icon  matTooltip="View Claim" class="icon">open_in_new</mat-icon>
-                            </td>
-                          </ng-container>
+                                {{ claim.status }}
+                            </span>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef class="header-cell"> ACTIONS </th>
+                        <td mat-cell *matCellDef="let claim">
+                            <mat-icon (click)="viewClaim(claim)"  matTooltip="View Claim" class="icon">open_in_new</mat-icon>
+                        </td>
+                    </ng-container>
 
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
-                </div>
-            </mat-tab>
-        </mat-tab-group>
-    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
 </div>

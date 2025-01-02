@@ -7,7 +7,6 @@ import { EventSignupComponent } from './components/events/event-signup/event-sig
 import { ExpensesComponent } from './components/expenses/expenses.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { ApprovalsComponent } from './components/approvals/approvals.component';
-import { TravelComponent } from './components/travel/travel.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent},
   {path:'policy',component:PolicyComponent},
   {path:'approvals',component:ApprovalsComponent}
-  // {path:'travel',component:TravelComponent}
 
 
 ];

@@ -17,7 +17,7 @@ namespace APP_API.Controllers
                 lastName = "Doe",
                 email = "john.doe@example.com",
                 phone = "123-456-7890",
-                title= "Project Manager",
+                type= "Manager",
                 department = "HR",
                 address = "456 Elm St",
                 postalCode = "20002",

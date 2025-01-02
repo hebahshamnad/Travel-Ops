@@ -6,7 +6,7 @@ import { Claim } from '../../models/claim.model';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar'; // Add this import
-
+import { ViewExpFormComponent } from './view-exp-form/view-exp-form.component';
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.component.html',
@@ -17,6 +17,8 @@ export class ExpensesComponent implements OnInit, AfterViewInit {
   events: Event[] = [];
   displayedColumns: string[] = ['event', 'vendor', 'date', 'amount', 'status', 'actions'];
   dataSource = new MatTableDataSource<Claim>();
+  isSubmit :boolean = false;
+  showForm: boolean = false;
   @ViewChild(MatSort) sort!: MatSort;
 
   claim = {
@@ -104,4 +106,20 @@ export class ExpensesComponent implements OnInit, AfterViewInit {
     };
   }
 
+  onTabChange(event: any): void {
+    // If the index of the selected tab is 1 (View All Claims), set isSubmit to true, otherwise false
+    this.isSubmit = event.index === 0 ? false : true;
+    console.log(this.isSubmit)
+  }
+
+  viewClaim(claim: Claim) {
+    console.log('Open in new clicked', claim);
+    this.claim = { ...claim };  // Create a copy of the row data to pass to the form
+    this.showForm = true;  // Show the form and hide the table
+  }
+
+  goBack() {
+    this.showForm = false;  // Show the form and hide the table
+    this.fetchClaims();
+  }
 }

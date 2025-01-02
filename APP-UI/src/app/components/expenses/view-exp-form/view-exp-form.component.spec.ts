@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TravelComponent } from './travel.component';
+import { ViewExpFormComponent } from './view-exp-form.component';
 
-describe('TravelComponent', () => {
-  let component: TravelComponent;
-  let fixture: ComponentFixture<TravelComponent>;
+describe('ViewExpFormComponent', () => {
+  let component: ViewExpFormComponent;
+  let fixture: ComponentFixture<ViewExpFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TravelComponent]
+      declarations: [ViewExpFormComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TravelComponent);
+    fixture = TestBed.createComponent(ViewExpFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

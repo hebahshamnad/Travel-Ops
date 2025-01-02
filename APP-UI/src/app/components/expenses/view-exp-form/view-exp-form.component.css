@@ -27,14 +27,8 @@
   }
   
   
-  h3 {
-    font-size: 1.5em; 
-    color: navy;
-    margin-bottom: 20px; 
-    font-weight: 500;
-}
   .label {
-    min-width: 120px;
+    min-width: 150px;
     font-weight: 600;
     color: #2c3e50;
     text-align: left;
@@ -80,31 +74,49 @@
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
     background-color: white;
   }
-  .button-section {
-    display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
-}
+  
   .btn {
     background-color: #13686f;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
     padding: 10px 20px;
-    margin: 0px 10px;
+    margin-top: 20px;
   }
-  .approve{
-    background-color: rgb(103, 161, 14);
-  }
-  .reject{
-    background-color: rgb(218, 32, 32);
+  .back{
+    border-radius: 20px !important;
+    margin-right: 10px;
   }
   .btn:hover {
     background-color: teal;
   }
+
+  .button-section {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+  
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+  }
+  .table td {
+    font-size: 14px;
+    padding: 16px;
+    color: #4a4a4a;
+  }
+  ::ng-deep .mat-header-cell {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 16px;
+  }
+  
   
   
   textarea {
@@ -112,6 +124,9 @@
     resize: vertical;
   }
   
+  .icon{
+    padding: 0px 20px;
+  }
   ::ng-deep .mat-mdc-form-field {
     max-height: 10px;
     margin-bottom: 30px;
@@ -128,10 +143,21 @@
     gap: 10px;
   }
   
+  .pending-status {
+    background-color: yellow;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  .accepted-status {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  
   ::ng-deep .mat-mdc-tab-header {
     padding: 10px 20px 0px 20px;
   }
-  
-.section{
-    border-bottom: 2px solid gray;
-    padding: 20px 0px;}
