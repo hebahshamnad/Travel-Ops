@@ -1,0 +1,162 @@
+-- INSTRUCTIONS
+-- Create a local SQL Server database using:
+-- sqllocaldb create "Local"
+-- Run the below script to generate and insert necessary information
+
+CREATE TABLE Events (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(255) NOT NULL,
+    Date DATE NOT NULL,
+    Location NVARCHAR(255),
+    Organizer NVARCHAR(255),
+    Link NVARCHAR(2083)
+);
+
+INSERT INTO Events (Name, Date, Location, Organizer, Link)
+VALUES 
+('TechCrunch Disrupt 2024', '2024-09-19', 'San Francisco, CA', 'TechCrunch', 'https://techcrunch.com/events/'),
+('HLTH 2024', '2024-10-13', 'Las Vegas, NV', 'HLTH', 'https://www.hlth.com/event/'),
+('SXSW EDU 2024', '2024-03-04', 'Austin, TX', 'SXSW', 'https://www.sxswedu.com/'),
+('AI Summit New York 2024', '2024-12-11', 'New York, NY', 'AI Summit', 'https://newyork.theaisummit.com/'),
+('Renewable Energy World International', '2024-12-10', 'Orlando, FL', 'Clarion Events', 'https://www.rewintl.com/'),
+('Blockchain Expo North America', '2024-11-28', 'Santa Clara, CA', 'Encore Media Group', 'https://blockchain-expo.com/northamerica/'),
+('FinovateFall 2024', '2024-09-23', 'New York, NY', 'Informa Connect', 'https://informaconnect.com/finovatefall/'),
+('RSA Conference 2025', '2025-02-24', 'San Francisco, CA', 'RSA Security LLC', 'https://www.rsaconference.com/usa'),
+('Smart City Expo World Congress', '2024-11-19', 'Barcelona, Spain', 'Fira de Barcelona', 'https://www.smartcityexpo.com/'),
+('CES 2025', '2025-01-07', 'Las Vegas, NV', 'Consumer Technology Association', 'https://www.ces.tech/');
+
+CREATE TABLE Claims (
+    ClaimId INT PRIMARY KEY,
+    Vendor NVARCHAR(255),
+    Events NVARCHAR(255),
+    Category NVARCHAR(255),
+    Date DATE,
+    Amount DECIMAL(18, 2),
+    Currency NVARCHAR(10),
+    Status NVARCHAR(50),
+    Description NVARCHAR(1000),
+    ReceiptUrl NVARCHAR(2083),
+    GenDate DATE
+);
+INSERT INTO Claims (ClaimId, Vendor, Events, Category, Date, Amount, Currency, Status, Description, ReceiptUrl, GenDate)
+VALUES
+(1, 'Air Canada', 'HLTH 2024', 'Travel', '2024-10-13', 500.00, 'USD', 'Approved', 'Round trip flight to San Francisco for Tech Summit.', 'https://example.com/receipts/12345.pdf', '2024-01-01'),
+(2, 'Holiday Inn', 'HLTH 2024', 'Accommodation', '2024-10-14', 300.00, 'USD', 'Pending', '3-night stay at Hilton Hotel during Tech Summit.', 'https://example.com/receipts/12346.pdf', '2024-01-02'),
+(3, 'Denny''s', 'HLTH 2024', 'Food', '2024-10-13', 120.00, 'USD', 'Pending', 'Dinner with client to discuss project updates.', 'https://example.com/receipts/12347.pdf' ,'2024-01-03');
+
+
+
+CREATE TABLE Signups
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Department NVARCHAR(100) NOT NULL,
+    Branch NVARCHAR(100) NOT NULL,
+    Manager NVARCHAR(100) NOT NULL,
+    EventType NVARCHAR(100) NOT NULL,
+    Purpose NVARCHAR(MAX) NOT NULL,
+    Date DATETIME NOT NULL,
+    Location NVARCHAR(200) NOT NULL,
+    Organizer NVARCHAR(100) NOT NULL,
+    Mode NVARCHAR(50) NOT NULL,
+    RegistrationCost DECIMAL(18,2) NOT NULL,
+    TravelCost DECIMAL(18,2) NOT NULL,
+    HotelCost DECIMAL(18,2) NOT NULL,
+    MiscCost DECIMAL(18,2) NOT NULL,
+    Description NVARCHAR(MAX) NOT NULL,
+    Status NVARCHAR(50) NOT NULL
+);
+
+INSERT INTO Signups (Name, Email, Department, Branch, Manager, EventType, Purpose, Date, Location, Organizer, Mode, RegistrationCost, TravelCost, HotelCost, MiscCost, Description, Status)
+VALUES 
+('John Doe', 'john.doe@example.com', 'HR', 'New York', 'Jane Smith', 'TechCrunch Disrupt 2024', 'Networking', '2024-09-19', 'San Francisco, CA', 'TechCrunch', 'Flight', 1000.00, 500.00, 300.00, 100.00, 'Annual technology conference focusing on startups and innovation.', 'Pending'),
+('John Doe', 'john.doe@example.com', 'HR', 'New York', 'Jane Smith', 'HLTH 2024', 'Learning', '2024-10-13', 'Las Vegas, NV', 'HLTH', 'Flight', 1200.00, 600.00, 350.00, 150.00, 'A key event for health and tech professionals to explore the future of healthcare.', 'Approved'),
+('Alice Johnson', 'alicej@example.com', 'Marketing', 'Las Vegas', 'Jane Smith', 'HLTH 2024', 'Learning', '2024-10-13', 'Las Vegas, NV', 'HLTH', 'Flight', 1200.00, 600.00, 350.00, 150.00, 'A key event for health and tech professionals to explore the future of healthcare.', 'Approved'),
+('Michael Brown', 'michaelb@example.com', 'IT', 'Austin', 'Jane Smith'', 'SXSW EDU 2024', 'Learning', '2024-03-04', 'Austin, TX', 'SXSW', 'Train', 800.00, 400.00, 250.00, 80.00, 'Conference focusing on education innovation and technology integration.', 'Pending'),
+('Eve Williams', 'evew@example.com', 'IT', 'New York', 'Jane Smith', 'AI Summit New York 2024', 'Networking', '2024-12-11', 'New York, NY', 'AI Summit', 'Flight', 1500.00, 700.00, 450.00, 200.00, 'Top event in AI with industry leaders sharing insights on the future of artificial intelligence.', 'Approved'),
+('David Harris', 'davidh@example.com', 'Finance', 'Orlando', 'Jane Smith', 'Renewable Energy World International', 'Learning', '2024-12-10', 'Orlando, FL', 'Clarion Events', 'Car', 1000.00, 550.00, 300.00, 120.00, 'An international event focusing on renewable energy innovations and sustainability.', 'Pending'),
+('Sophia Martin', 'sophiam@example.com', 'Marketing', 'Santa Clara', 'Jane Smith', 'Blockchain Expo North America', 'Networking', '2024-11-28', 'Santa Clara, CA', 'Encore Media Group', 'Flight', 900.00, 450.00, 280.00, 110.00, 'North America’s largest blockchain event featuring major players in the space.', 'Approved'),
+('Liam Clark', 'liamc@example.com', 'Finance', 'New York', ''Jane Smith', 'FinovateFall 2024', 'Learning', '2024-09-23', 'New York, NY', 'Informa Connect', 'Train', 1100.00, 500.00, 350.00, 130.00, 'A key event for fintech professionals to explore new trends in the financial industry.', 'Rejected'),
+('James Scott', 'jamess@example.com', 'IT', 'San Francisco', 'Jane Smith', 'RSA Conference 2025', 'Networking', '2025-02-24', 'San Francisco, CA', 'RSA Security LLC', 'Flight', 1400.00, 650.00, 400.00, 150.00, 'The premier cybersecurity conference where experts discuss the latest security trends and solutions.', 'Pending'),
+('Isabella Taylor', 'isabellat@example.com', 'Marketing', 'Barcelona', ''Jane Smith', 'Smart City Expo World Congress', 'Learning', '2024-11-19', 'Barcelona, Spain', 'Fira de Barcelona', 'Car', 1300.00, 700.00, 450.00, 180.00, 'An event dedicated to smart city innovations, sustainability, and urban planning technologies.', 'Approved'),
+('Noah Evans', 'noahevans@example.com', 'IT', 'Las Vegas', 'Jane Smith', 'CES 2025', 'Networking', '2025-01-07', 'Las Vegas, NV', 'Consumer Technology Association', 'Flight', 1500.00, 750.00, 500.00, 200.00, 'The largest technology event in the world, showcasing new consumer electronics and innovations.', 'Approved');
+
+
+-- Creating the 'Users' table
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    FullName NVARCHAR(255),
+    FirstName NVARCHAR(100),
+    LastName NVARCHAR(100),
+    Email NVARCHAR(255),
+    Phone NVARCHAR(50),
+    Type NVARCHAR(50),
+    Department NVARCHAR(100),
+    Address NVARCHAR(255),
+    PostalCode NVARCHAR(20),
+    City NVARCHAR(100),
+    Country NVARCHAR(100)
+);
+
+-- Creating the 'Preference' table
+CREATE TABLE Preference (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserId INT,
+    Email NVARCHAR(255),
+    Sms NVARCHAR(50),
+    App NVARCHAR(50),
+    FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+-- Creating the 'EmergencyContact' table
+CREATE TABLE EmergencyContact (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserId INT,
+    Name NVARCHAR(255),
+    Relationship NVARCHAR(100),
+    PhoneNumber NVARCHAR(50),
+    FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+INSERT INTO Users (FullName, FirstName, LastName, Email, Phone, Type, Department, Address, PostalCode, City, Country)
+VALUES 
+('John Doe', 'John', 'Doe', 'john.doe@example.com', '123-456-7890', 'Employee', 'HR', '456 Elm St', '20002', 'New York', 'USA'),
+('Alice Johnson', 'Alice', 'Johnson', 'alicej@example.com', '987-654-3210', 'Employee', 'Marketing', '123 Main St', '89109', 'Las Vegas', 'USA'),
+('Michael Brown', 'Michael', 'Brown', 'michaelb@example.com', '555-555-5555', 'Employee', 'IT', '789 Oak St', '78701', 'Austin', 'USA'),
+('Eve Williams', 'Eve', 'Williams', 'evew@example.com', '222-333-4444', 'Employee', 'IT', '321 Pine St', '10001', 'New York', 'USA'),
+('David Harris', 'David', 'Harris', 'davidh@example.com', '111-222-3333', 'Employee', 'Finance', '654 Maple St', '32801', 'Orlando', 'USA'),
+('Sophia Martin', 'Sophia', 'Martin', 'sophiam@example.com', '444-555-6666', 'Employee', 'Marketing', '987 Birch St', '95054', 'Santa Clara', 'USA'),
+('Liam Clark', 'Liam', 'Clark', 'liamc@example.com', '333-444-5555', 'Employee', 'Finance', '111 Spruce St', '10001', 'New York', 'USA'),
+('James Scott', 'James', 'Scott', 'jamess@example.com', '666-777-8888', 'Employee', 'IT', '222 Redwood St', '94105', 'San Francisco', 'USA'),
+('Isabella Taylor', 'Isabella', 'Taylor', 'isabellat@example.com', '777-888-9999', 'Employee', 'Marketing', '333 Palm St', '08002', 'Barcelona', 'Spain'),
+('Noah Evans', 'Noah', 'Evans', 'noahevans@example.com', '888-999-0000', 'Employee', 'IT', '444 Cypress St', '89109', 'Las Vegas', 'USA'),
+('Jane Smith', 'Jane', 'Smith', 'jane.smith@example.com', '555-999-0000', 'Manager', 'Management', '500 Flower Ave', '10001', 'New York', 'USA');
+
+INSERT INTO EmergencyContact (UserId, Name, Relationship, PhoneNumber)
+VALUES
+( 1, 'Jane Doe', 'Spouse', '111-222-3333'),
+( 2, 'Mark Johnson', 'Brother', '222-333-4444'),
+( 3, 'Linda Brown', 'Mother', '333-444-5555'),
+( 4, 'Robert Williams', 'Father', '444-555-6666'),
+( 5, 'Emily Harris', 'Spouse', '555-666-7777'),
+( 6, 'Daniel Martin', 'Spouse', '666-777-8888'),
+( 7, 'Olivia Clark', 'Sister', '777-888-9999'),
+( 8, 'Charles Scott', 'Friend', '888-999-0000'),
+( 9, 'Emma Taylor', 'Cousin', '999-000-1111'),
+( 10, 'Sophia Evans', 'Spouse', '000-111-2222'),
+( 11, 'Michael Smith', 'Son', '111-222-3334');
+
+INSERT INTO Preference (UserId, Email, Sms, App)
+VALUES
+(1, 1, 0, 1),
+(2, 1, 1, 0),
+(3, 1, 0, 1),
+(4, 0, 1, 1),
+(5, 1, 1, 0),
+(6, 0, 0, 1),
+(7, 1, 1, 0),
+(8, 0, 1, 1),
+(9, 1, 0, 0),
+(10, 0, 1, 1),
+(11, 1, 1, 1);
