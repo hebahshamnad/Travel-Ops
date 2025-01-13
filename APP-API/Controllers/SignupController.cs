@@ -65,7 +65,6 @@ namespace APP_API.Controllers
         [HttpPut("ChangeStatus")]
         public async Task<ActionResult> ChangeStatus(int id,string status)
         {
-            // Find the signup by id
             var signup = await _context.Signups.FindAsync(id);
 
             if (signup == null)
@@ -73,15 +72,28 @@ namespace APP_API.Controllers
                 return NotFound($"Signup with ID {id} not found.");
             }
 
-            // Update the status to "Approved"
             signup.Status = status;
 
-            // Save the changes
             await _context.SaveChangesAsync();
 
-            return NoContent(); // Return 204 No Content as a success response
+            return NoContent(); 
         }
-    
 
-}
+        [HttpGet("GetSpendingData")]
+        public ActionResult<IEnumerable<object>> GetEventCost()
+        {
+            var spendingData = _context.Signups
+                .GroupBy(s => s.EventType)
+                .Select(group => new
+                {
+                    Category = group.Key,
+                    Amount = group.Sum(s => s.RegistrationCost + s.TravelCost + s.HotelCost + s.MiscCost)
+                })
+                .ToList();
+
+            return Ok(spendingData);
+        }
+
+
+    }
 }

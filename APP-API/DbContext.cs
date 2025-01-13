@@ -25,5 +25,27 @@ public class AppDbContext : DbContext
             .HasKey(e => e.Id);
         modelBuilder.Entity<User>()
             .HasKey(u => u.Id);
+
+    
+
+        // EmergencyContact Configuration
+        modelBuilder.Entity<EmergencyContact>()
+            .HasKey(e => e.Id);
+
+        modelBuilder.Entity<EmergencyContact>()
+            .HasOne(e => e.User)
+            .WithOne(u => u.emergencyContact)
+            .HasForeignKey<EmergencyContact>(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // NotificationPreferences Configuration
+        modelBuilder.Entity<Preference>()
+            .HasKey(p => p.Id);
+
+        modelBuilder.Entity<Preference>()
+            .HasOne(p => p.User)
+            .WithOne(u => u.preference)
+            .HasForeignKey<Preference>(p => p.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
