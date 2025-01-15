@@ -86,8 +86,8 @@ namespace APP_API.Controllers
                 .GroupBy(s => s.EventType)
                 .Select(group => new
                 {
-                    Category = group.Key,
-                    Amount = group.Sum(s => s.RegistrationCost + s.TravelCost + s.HotelCost + s.MiscCost)
+                    Name = group.Key,
+                    Value = group.Sum(s => s.RegistrationCost + s.TravelCost + s.HotelCost + s.MiscCost)
                 })
                 .ToList();
 

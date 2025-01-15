@@ -27,6 +27,7 @@ import { PolicyComponent } from './components/policy/policy.component';
 import { ApprovalsComponent } from './components/approvals/approvals.component';
 import { ViewApprovalFormComponent } from './components/approvals/view-approval-form/view-approval-form.component';
 import { ViewExpFormComponent } from './components/expenses/view-exp-form/view-exp-form.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { ViewExpFormComponent } from './components/expenses/view-exp-form/view-e
     MatSortModule,
     FormsModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxChartsModule // Add this module
+
 
   ],
   providers: [
