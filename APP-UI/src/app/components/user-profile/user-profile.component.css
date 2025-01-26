@@ -15,7 +15,27 @@
   background: white;
   /* transition: transform 0.2s, box-shadow 0.2s; */
 }
+.button-container {
+  display: flex;
+  align-items: center;
+}
 
+.btn {
+  background-color: #13686f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 10px 20px;
+  margin: 25px;
+}
+
+.btn:hover {
+  background-color: teal;
+}
 
 .card-header {
   padding: 20px;
@@ -88,4 +108,10 @@
   max-width: 150px; /* Maximum size */
   height: auto;
   object-fit: contain;
+}
+
+.header-container { /* New CSS class */
+  display: flex;
+  justify-content: space-between; /* Space between header and button */
+  align-items: center; /* Center vertically */
 }

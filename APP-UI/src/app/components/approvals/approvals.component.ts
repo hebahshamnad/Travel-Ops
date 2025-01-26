@@ -54,8 +54,8 @@ export class ApprovalsComponent implements OnInit {
     this.signupService.getSignups().subscribe(data => {
       this.signups.data = data.filter((signup: Signup) => signup.status != 'Pending');
       this.pendingSignups.data = data.filter((signup: Signup) => signup.status == 'Pending');
-      this.employeeSignups.data = data.filter((signup: Signup) => signup.name == 'John Doe');
-      this.pendingEmpSignups.data = data.filter((signup: Signup) => signup.status === 'Pending' && signup.name === 'John Doe');
+      this.employeeSignups.data = data.filter((signup: Signup) => signup.id == 1);
+      this.pendingEmpSignups.data = data.filter((signup: Signup) => signup.status === 'Pending' && signup.id === 1);
       this.signups.sort = this.sort;
     this.employeeSignups.sort = this.sort;
     this.pendingSignups.sort = this.sort;

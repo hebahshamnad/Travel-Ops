@@ -1,113 +1,125 @@
 <!-- <div *ngIf="dataSource"> -->
 <div class="cards-container">
-<div class="card">
-  <h2 class="card-header card-title">Your Profile</h2>
-  <div class="profile-card">
-    <div class="profile-item">
-      <label class="label">Name:</label>
-      <div class="input-field">
-        <input *ngIf="dataSource" type="text" placeholder="First Name" [(ngModel)]="dataSource.fullName" readonly>
+
+  <div class="card">
+    <div class="header-container">
+      <h2 class="card-header card-title">Your Profile </h2>
+      <div class="button-container">
+        <button class="btn" (click)="switchView()">
+          {{ isManager ? 'Employee' : 'Manager' }} View
+        </button>
       </div>
     </div>
-    
-    <div class="profile-item">
-      <label class="label">Email:</label>
-      <div class="input-field">
-        <input *ngIf="dataSource" type="email" placeholder="Email" [(ngModel)]="dataSource.email" readonly>
+
+
+    <div class="profile-card">
+      <div class="profile-item">
+        <label class="label">Name:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="First Name" [(ngModel)]="dataSource.fullName" readonly>
+        </div>
       </div>
-    </div>
-    <div class="profile-item">
-      <label class="label">Phone Number:</label>
-      <div class="input-field">
-        <input *ngIf="dataSource"type="text" placeholder="Phone Number" [(ngModel)]="dataSource.phone" readonly>
+
+      <div class="profile-item">
+        <label class="label">Email:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="email" placeholder="Email" [(ngModel)]="dataSource.email" readonly>
+        </div>
       </div>
-    </div>
-  
-    <div class="profile-item">
-      <label class="label">Department:</label>
-      <div class="input-field">
-        <input *ngIf="dataSource" type="text" placeholder="Department" [(ngModel)]="dataSource.department" readonly>
+      <div class="profile-item">
+        <label class="label">Phone Number:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Phone Number" [(ngModel)]="dataSource.phone" readonly>
+        </div>
       </div>
-    </div>
-    <div class="profile-item">
-      <label class="label">Address:</label>
-      <div class="input-field">
-        <input   *ngIf="dataSource" type="text" placeholder="Address" [(ngModel)]="dataSource.address" readonly>
+
+      <div class="profile-item">
+        <label class="label">Department:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Department" [(ngModel)]="dataSource.department" readonly>
+        </div>
       </div>
-    </div>
-    <div class="profile-item">
-      <label class="label">City:</label>
-      <div class="input-field">
-        <input  *ngIf="dataSource" type="text" placeholder="City" [(ngModel)]="dataSource.city"  readonly>
+      <div class="profile-item">
+        <label class="label">Address:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Address" [(ngModel)]="dataSource.address" readonly>
+        </div>
       </div>
-    </div>
-    <div class="profile-item">
-      <label class="label">Postal Code:</label>
-      <div class="input-field">
-        <input  *ngIf="dataSource" type="text" placeholder="Postal Code" [(ngModel)]="dataSource.postalCode" readonly>
+      <div class="profile-item">
+        <label class="label">City:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="City" [(ngModel)]="dataSource.city" readonly>
+        </div>
       </div>
-    </div>
-    <div class="profile-item">
-      <label class="label">Country:</label>
-      <div class="input-field">
-        <input  *ngIf="dataSource" type="text" placeholder="Country" [(ngModel)]="dataSource.country"  readonly>
+      <div class="profile-item">
+        <label class="label">Postal Code:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Postal Code" [(ngModel)]="dataSource.postalCode" readonly>
+        </div>
+      </div>
+      <div class="profile-item">
+        <label class="label">Country:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Country" [(ngModel)]="dataSource.country" readonly>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="card">
-  <div class="photo">
-    <img src="/assets/image/user-icon.png" class="profile-image"/>
+  <div class="card">
+    <div class="photo">
+      <img src="/assets/image/user-icon.png" class="profile-image" />
+    </div>
+
+    <div class="profile-card">
+
+
+      <div class="profile-item"><label class="label">Emergency Contact:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Emergency Contact Name"
+            [(ngModel)]="dataSource.emergencyContact.name" readonly>
+        </div>
+      </div>
+      <div class="profile-item"><label class="label">Relationship:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Relationship"
+            [(ngModel)]="dataSource.emergencyContact.relationship" readonly>
+        </div>
+      </div>
+      <div class="profile-item"><label class="label">Number:</label>
+        <div class="input-field">
+          <input *ngIf="dataSource" type="text" placeholder="Number"
+            [(ngModel)]="dataSource.emergencyContact.phoneNumber" readonly>
+        </div>
+
+      </div>
+      <div class="profile-item">
+        <label class="label">Email Notifications: </label>
+        <div class="input-field">
+          <div class="profile-item"><input *ngIf="dataSource" type="checkbox" [(ngModel)]="dataSource.preference.email"
+              disabled></div>
+        </div>
+      </div>
+      <div class="profile-item">
+        <label class="label">App Notifications: </label>
+        <div class="input-field">
+          <div class="profile-item"><input *ngIf="dataSource" type="checkbox" [(ngModel)]="dataSource.preference.app"
+              disabled></div>
+        </div>
+      </div>
+
+      <div class="profile-item">
+        <label class="label">SMS Notifications: </label>
+        <div class="input-field">
+          <div class="profile-item"><input *ngIf="dataSource" type="checkbox" [(ngModel)]="dataSource.preference.sms"
+              disabled></div>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <div class="profile-card">
-    
-
-    <div class="profile-item"><label class="label">Emergency Contact:</label>
-      <div class="input-field">
-        <input  *ngIf="dataSource" type="text" placeholder="Emergency Contact Name" [(ngModel)]="dataSource.emergencyContact.name" readonly>
-      </div>
-    </div>
-    <div class="profile-item"><label class="label">Relationship:</label>
-      <div class="input-field">
-        <input  *ngIf="dataSource" type="text" placeholder="Relationship" [(ngModel)]="dataSource.emergencyContact.relationship" readonly>
-      </div>
-    </div>
-    <div class="profile-item"><label class="label">Number:</label>
-      <div class="input-field">
-        <input  *ngIf="dataSource" type="text" placeholder="Number" [(ngModel)]="dataSource.emergencyContact.phoneNumber" readonly>
-      </div>
-      
-    </div>
-    <div class="profile-item">
-      <label class="label">Email Notifications: </label>
-      <div class="input-field">
-        <div class="profile-item"><input  *ngIf="dataSource" type="checkbox"
-            [(ngModel)]="dataSource.preference.email" disabled></div>
-      </div>
-    </div>
-    <div class="profile-item">
-      <label class="label">App Notifications: </label>
-      <div class="input-field">
-        <div class="profile-item"><input  *ngIf="dataSource" type="checkbox"
-            [(ngModel)]="dataSource.preference.app" disabled></div>
-      </div>
-    </div>
-
-    <div class="profile-item">
-      <label class="label">SMS Notifications: </label>
-      <div class="input-field">
-        <div class="profile-item"><input  *ngIf="dataSource" type="checkbox"
-            [(ngModel)]="dataSource.preference.sms" disabled></div>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 </div>
 
 <!-- </div> -->
-

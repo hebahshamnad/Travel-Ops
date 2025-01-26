@@ -79,7 +79,7 @@ namespace APP_API.Controllers
             return NoContent(); 
         }
 
-        [HttpGet("GetSpendingData")]
+        [HttpGet("GetEventCost")]
         public ActionResult<IEnumerable<object>> GetEventCost()
         {
             var spendingData = _context.Signups
