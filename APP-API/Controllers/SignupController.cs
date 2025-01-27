@@ -114,12 +114,30 @@ namespace APP_API.Controllers
         }
 
 
-        
+        [HttpGet("GetTotalCosts")]
+        public ActionResult<object> GetTotalCosts()
+        {
+            var result = _context.Signups
+                .GroupBy(s => 1)  // Group by 1 to get one row with the total sums
+                .Select(g => new
+                {
+                    TotalRegistration = g.Sum(s => (s.RegistrationCost )),
+                    TotalTravel = g.Sum(s => (s.TravelCost )),
+                    TotalHotel = g.Sum(s => (s.HotelCost )),
+                    TotalMisc = g.Sum(s => (s.MiscCost))
+                })
+                .FirstOrDefault();  // Only one result since we are grouping by 1
 
-           
+            return Ok(result);
+        }
 
 
-}
+
+
+
+
+
+    }
 
     internal class EmployeeCost
     {
