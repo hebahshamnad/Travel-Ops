@@ -95,5 +95,35 @@ namespace APP_API.Controllers
         }
 
 
+
+        [HttpGet("GetCostPerPerson")]
+        public ActionResult<IEnumerable<object>> GetCostPerPerson()
+        {
+            var result = (from s in _context.Signups
+                          join u in _context.Users on s.Email equals u.email
+                          where u.type == "Employee"
+                          group new { s, u } by u.fullName into g
+                          orderby g.Sum(x => x.s.RegistrationCost + x.s.TravelCost + x.s.HotelCost + x.s.MiscCost) descending
+                          select new EmployeeCost
+                          {
+                              EmployeeName = g.Key,
+                              TotalCost = g.Sum(x => x.s.RegistrationCost + x.s.TravelCost + x.s.HotelCost + x.s.MiscCost)
+                          }).ToList();
+
+            return Ok(result);
+        }
+
+
+        
+
+           
+
+
+}
+
+    internal class EmployeeCost
+    {
+        public string EmployeeName { get; set; }
+        public decimal TotalCost { get; set; }
     }
 }

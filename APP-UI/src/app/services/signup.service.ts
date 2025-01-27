@@ -26,4 +26,7 @@ export class SignupService {
   getEventCost(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/GetEventCost`);
   }
+  GetCostPerPerson(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/GetCostPerPerson`);
+  }
 }

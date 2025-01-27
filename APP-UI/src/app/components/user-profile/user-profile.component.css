@@ -39,7 +39,7 @@
 
 .card-header {
   padding: 20px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0 !important;
 }
 
 .card-title {
@@ -114,4 +114,5 @@
   display: flex;
   justify-content: space-between; /* Space between header and button */
   align-items: center; /* Center vertically */
+  
 }

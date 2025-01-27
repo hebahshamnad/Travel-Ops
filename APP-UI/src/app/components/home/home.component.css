@@ -1,0 +1,32 @@
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 60px;
+  background-color: white;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.75em;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.canvas {
+  padding: 20px;
+  max-height: 500px !important;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  margin: 20px
+}
