@@ -29,11 +29,15 @@ export class HomeComponent implements OnInit {
   totalCosts: any = { totalRegistration: 0, totalTravel: 0, totalHotel: 0, totalMisc: 0 }; // Initialize with default values
   events: Event[] = [];
   users: User[] = [];
+  highestSpenders: any[] = [];
+  highestEvents: any[] = [];
+  // ----------------------------------------------
   userCount: number = 0;
   eventCount: number = 0;
   pendingCount: number = 0;
   approvedCount: number = 0;
   rejectedCount: number = 0;
+
   constructor(private signupService: SignupService, private eventService: EventsService, private userService: UserProfileService
 
   ) { }
@@ -94,13 +98,15 @@ export class HomeComponent implements OnInit {
   getEventCost(): void {
     this.signupService.getEventCost().subscribe(
       (data) => {
-        this.eventCosts = data;
-        console.log('Event costs:', this.eventCosts);
+        this.eventCosts = data;        
+        console.log('Event list:', this.eventCosts);
+        this.highestEvents = this.eventCosts.sort((a, b) => b.value - a.value).slice(0, 3);  // Get the top 3 events
+        console.log('Top 3 events:', this.highestEvents);
         this.createChart();  // Create the chart once data is available
 
       },
       (error) => {
-        console.error('Error fetching event costs:', error);
+        console.error('Error fetching event list:', error);
       }
     );
   }
@@ -112,13 +118,16 @@ export class HomeComponent implements OnInit {
     this.signupService.GetCostPerPerson().subscribe(
       (data) => {
         this.personCosts = data;
-        console.log('Person costs:', this.personCosts);
+        console.log('Person list:', this.personCosts);
+
+        this.highestSpenders = this.personCosts.sort((a, b) => b.totalCost - a.totalCost).slice(0, 3);  // Get the top 3 spenders
+        console.log('Top 3 spenders:', this.highestSpenders);
         const personNames = this.personCosts.map(person => person.employeeName);
         const personValues = this.personCosts.map(person => person.totalCost);
-        this.createPieChart(personNames, personValues, 'personCanvas');  // Create the pie chart for person costs
+        this.createPieChart(personNames, personValues, 'personCanvas');  
       },
       (error) => {
-        console.error('Error fetching person costs:', error);
+        console.error('Error fetching person list:', error);
       }
     );
   }
