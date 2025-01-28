@@ -25,7 +25,15 @@
 
 .canvas {
   padding: 20px;
-  max-height: 500px !important;
+  max-height: 400px !important;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  margin: 20px
+}
+.pie {
+  padding: 20px;
+  height: 300px !important;
+  width: 300px !important;
   border-radius: 10px;
   background-color: whitesmoke;
   margin: 20px
