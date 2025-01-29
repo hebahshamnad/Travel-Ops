@@ -100,10 +100,12 @@ export class HomeComponent implements OnInit {
       (data) => {
         this.eventCosts = data;        
         console.log('Event list:', this.eventCosts);
-        this.highestEvents = this.eventCosts.sort((a, b) => b.value - a.value).slice(0, 3);  // Get the top 3 events
-        console.log('Top 3 events:', this.highestEvents);
-        this.createChart();  // Create the chart once data is available
-
+        this.highestEvents = this.eventCosts.sort((a, b) => b.value - a.value).slice(0, 5);  // Get the top 3 events
+        console.log('Top 5 events:', this.highestEvents);
+        const eventNames = this.highestEvents.map(person => person.name);
+        const eventValues = this.highestEvents.map(person => person.value);
+        this.createBarChart(eventNames, eventValues, 'EventCost');  // Create a bar chart instead of a pie chart
+       
       },
       (error) => {
         console.error('Error fetching event list:', error);
@@ -120,12 +122,12 @@ export class HomeComponent implements OnInit {
         this.personCosts = data;
         console.log('Person list:', this.personCosts);
 
-        this.highestSpenders = this.personCosts.sort((a, b) => b.totalCost - a.totalCost).slice(0, 3);  // Get the top 3 spenders
-        console.log('Top 3 spenders:', this.highestSpenders);
-        const personNames = this.personCosts.map(person => person.employeeName);
-        const personValues = this.personCosts.map(person => person.totalCost);
-        this.createPieChart(personNames, personValues, 'personCanvas');  
-      },
+        this.highestSpenders = this.personCosts.sort((a, b) => b.totalCost - a.totalCost).slice(0, 5);  // Get the top 3 spenders
+        console.log('Top 5 spenders:', this.highestSpenders);
+        const personNames = this.highestSpenders.map(person => person.employeeName);
+        const personValues = this.highestSpenders.map(person => person.totalCost);
+        this.createBarChart(personNames, personValues, 'CostPerPerson');  // Create a bar chart instead of a pie chart
+          },
       (error) => {
         console.error('Error fetching person list:', error);
       }
@@ -153,6 +155,60 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  
+  createBarChart(labels: string[], values: number[], canvasId: string): void {
+    this.chart = new Chart(canvasId, {
+      type: 'bar',  // Specify bar chart type
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Spending: ',
+          data: values,
+          backgroundColor: 'rgba(75, 192, 192, 0.6)', // Example color
+          borderColor: 'rgba(75, 192, 192, 1)', // Solid border color
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)', // Dark background for tooltips
+            titleColor: '#fff', // White title color
+            bodyColor: '#fff', // White body color
+            borderColor: '#6ec7cc', // Border color for tooltips
+            borderWidth: 1,
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.1)', // Light grid lines
+            },
+            ticks: {
+              color: '#333', // Tick color
+              font: {
+                size: 12, // Font size for ticks
+              }
+            }
+          },
+          x: {
+            grid: {
+              display: false, // Hide grid lines for x-axis
+            },
+            ticks: {
+              color: '#333', // Tick color
+              font: {
+                size: 12, // Font size for ticks
+              }
+            }
+          }
+        }
+      }
+    });
+  }
 
   createPieChart(labels: string[], values: number[], canvasId: string): void {
     this.chart = new Chart(canvasId, {
@@ -175,47 +231,7 @@ export class HomeComponent implements OnInit {
         }
       }
     });
-  }
-  createChart(): void {
-    const eventNames = this.eventCosts.map(event => event.name);
-    const eventValues = this.eventCosts.map(event => event.value);
 
-    this.chart = new Chart('canvas', {
-      type: 'bar',  // Specify bar chart type
-      data: {
-        labels: eventNames,
-        datasets: [{
-          label: 'Event Values',
-          data: eventValues,
-          backgroundColor: '#6ec7cc',
-          borderColor: '#6ec7cc',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          tooltip: {
-            enabled: true
-          },
-          datalabels: {
-            display: true,
-            color: '#000',  // Set the text color of the labels
-            font: {
-              weight: 'bold',
-              size: 14
-            },
-            formatter: (value) => {
-              return value;  // Show the exact value on top of each bar
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
+    
   }
-}
+  }

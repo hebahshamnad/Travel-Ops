@@ -1,11 +1,54 @@
-  <div class="card">
-    <div class="card-header">
-      <h2 class="card-title">Event Revenue Overview</h2> 
-    </div>
-    <canvas class="pie" id="personCanvas"></canvas> <!-- Ensure this is present --> 
-    
-    <canvas class="pie" id="totalCostCanvas"> </canvas> <!-- Ensure this is present --> 
-
-    <canvas class="canvas"  id="canvas"></canvas>
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">Event Revenue Overview</h2> 
   </div>
+  
+  <!-- New section for displaying counts -->
+  <div class="dashboard-counts">
+    <div class="count-card">
+      <h3>Employees</h3>
+      <p>{{ userCount }}</p>
+    </div>
+    <div class="count-card">
+      <h3>Events</h3>
+      <p>{{ eventCount }}</p>
+    </div>
+  </div>
+  
+  <div class="dashboard-counts">
+    <div class="count-card">
+      <h3>Pending Signups</h3>
+      <p>{{ pendingCount }}</p>
+    </div>
+    <div class="count-card">
+      <h3>Approved Signups</h3>
+      <p>{{ approvedCount }}</p>
+    </div>
+    <div class="count-card">
+      <h3>Rejected Signups</h3>
+      <p>{{ rejectedCount }}</p>
+    </div>
+  </div>
+
+  <!-- Bar Chart for Spending by Employee -->
+  <div class="chart-section">
+    <h3 class="chart-title">Spending by Employee</h3>
+    <p class="chart-description">This chart displays the total spending of each employee, allowing for easy comparison of expenditures.</p>
+    <canvas class="canvas" id="CostPerPerson"></canvas>
+  </div>
+
+  <!-- Additional Chart for Event Costs -->
+  <div class="chart-section">
+    <h3 class="chart-title">Event Costs Overview</h3>
+    <p class="chart-description">This chart provides an overview of the costs associated with each event, helping to identify high-cost events.</p>
+    <canvas class="canvas" id="EventCost"></canvas>
+  </div>
+
+  <!-- Pie Chart for Total Cost -->
+  <div class="chart-section">
+    <h3 class="chart-title">Total Cost Distribution</h3>
+    <p class="chart-description">This pie chart illustrates the distribution of total costs across different categories, providing insights into spending patterns.</p>
+    <canvas id="totalCostCanvas" ></canvas>
+  </div>
+</div>
     
