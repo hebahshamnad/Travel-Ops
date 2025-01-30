@@ -7,7 +7,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'; // Import the data labe
 import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 import { Signup } from '../../models/signup.model';
-
+import { ClaimService } from '../../services/claim.service';
+import { Claim } from '../../models/claim.model';
 // Register the necessary components
 Chart.register(CategoryScale, LinearScale, BarElement, BarController, Title, Tooltip, PieController,ArcElement); // Register PieController
 
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
   users: User[] = [];
   highestSpenders: any[] = [];
   highestEvents: any[] = [];
+  claims: any[] = [];
   // ----------------------------------------------
   userCount: number = 0;
   eventCount: number = 0;
@@ -38,7 +40,7 @@ export class HomeComponent implements OnInit {
   approvedCount: number = 0;
   rejectedCount: number = 0;
 
-  constructor(private signupService: SignupService, private eventService: EventsService, private userService: UserProfileService
+  constructor(private signupService: SignupService, private eventService: EventsService, private userService: UserProfileService, private claimService: ClaimService
 
   ) { }
 
@@ -49,6 +51,7 @@ export class HomeComponent implements OnInit {
     this.getNumOfEvents();
     this.getNumOfUsers();
     this.getNumofSignups();
+    this.getClaims();
   }
   // ----------------------------------------------
   getNumOfEvents(): void {
@@ -155,6 +158,25 @@ export class HomeComponent implements OnInit {
     );
   }
 
+ 
+  getClaims(): void {
+    this.claimService.GetTotalCosts().subscribe(
+      (data) => {
+        this.claims = data;
+        console.log('Total claims:', this.claims);
+        // const totalCostLabels = ['Accomodation', 'Travel', 'Food', 'Misc'];
+        const totalCostLabels = this.claims.map(claim => claim.category);
+        const totalCostValues = this.claims.map(claim => claim.totalCost);
+  
+        this.createPieChart(totalCostLabels, totalCostValues, 'totalClaimCanvas');
+
+
+      },
+      (error) => {
+        console.error('Error fetching claim costs:', error);
+      }
+    );
+  }
   
   createBarChart(labels: string[], values: number[], canvasId: string): void {
     this.chart = new Chart(canvasId, {

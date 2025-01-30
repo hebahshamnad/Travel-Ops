@@ -32,11 +32,17 @@
 }
 .pie {
   padding: 20px;
-  /* height: 300px !important;
-  width: 300px !important; */
+  max-height: 300px !important;
+  max-width: 45% !important; 
   border-radius: 10px;
   background-color: whitesmoke;
   margin: 20px
+}
+.pie-container {
+  display: flex;           /* Use flexbox for side-by-side layout */
+  justify-content: space-between; /* Distribute space between the charts */
+  /* gap: 20px;               Optional: Adds some space between the two charts */
+  /* width: 100%;             Make sure the container takes up full width */
 }
 
 .dashboard-counts {

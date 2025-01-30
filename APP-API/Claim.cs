@@ -2,6 +2,8 @@
 {
     public class Claim {
         public int ClaimId { get; set; }
+        public int UserId { get; set; }
+
         public string Vendor { get; set; }
         public string Events { get; set; }
         public string Category { get; set; }

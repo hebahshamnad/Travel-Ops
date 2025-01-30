@@ -26,7 +26,11 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasKey(u => u.Id);
 
-    
+        modelBuilder.Entity<Claim>()
+        .HasOne<User>() // Specify the relationship
+        .WithMany() // Assuming a User can have many Claims
+        .HasForeignKey(c => c.UserId) // Set the foreign key
+        .OnDelete(DeleteBehavior.Cascade);
 
         // EmergencyContact Configuration
         modelBuilder.Entity<EmergencyContact>()
